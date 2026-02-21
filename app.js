@@ -3,8 +3,38 @@
 
 let map;
 let markers = [];
-let currentFilter = 'all';
+let currentTypeFilter = 'all';
+let currentCityFilter = 'all';
 let currentDate = new Date('2026-02-22');
+
+// City configurations for zooming
+const cityConfigs = {
+    'all': {
+        center: [45, 0],
+        zoom: 2,
+        bounds: [[30, -125], [50, 125]]
+    },
+    'New York': {
+        center: [40.7128, -74.0060],
+        zoom: 12,
+        bounds: [[40.6, -74.2], [40.9, -73.8]]
+    },
+    'Beijing': {
+        center: [39.9042, 116.4074],
+        zoom: 11,
+        bounds: [[39.7, 116.1], [40.1, 116.7]]
+    },
+    'Shanghai': {
+        center: [31.2304, 121.4737],
+        zoom: 11,
+        bounds: [[31.0, 121.2], [31.5, 121.8]]
+    },
+    'Hong Kong': {
+        center: [22.3193, 114.1694],
+        zoom: 11,
+        bounds: [[22.1, 113.9], [22.5, 114.4]]
+    }
+};
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,10 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize Leaflet map
 function initMap() {
-    // Center map between NYC and China
+    const config = cityConfigs['all'];
+    
     map = L.map('map', {
-        center: [45, 0],
-        zoom: 2,
+        center: config.center,
+        zoom: config.zoom,
         minZoom: 2,
         maxZoom: 18,
         scrollWheelZoom: true
@@ -37,21 +68,28 @@ function initMap() {
     }).addTo(map);
 
     // Fit bounds to show both NYC and China regions
-    const bounds = L.latLngBounds(
-        [30, -125], // Southwest
-        [50, 125]   // Northeast
-    );
-    map.fitBounds(bounds, { padding: [50, 50] });
+    map.fitBounds(config.bounds, { padding: [50, 50] });
 }
 
 // Setup event listeners
 function setupEventListeners() {
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    // Type filter buttons
+    document.querySelectorAll('.filter-btn.type-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.filter-btn.type-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            currentFilter = this.dataset.type;
+            currentTypeFilter = this.dataset.type;
+            updateDisplay();
+        });
+    });
+
+    // City filter buttons
+    document.querySelectorAll('.filter-btn.city-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn.city-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentCityFilter = this.dataset.city;
+            zoomToCity(currentCityFilter);
             updateDisplay();
         });
     });
@@ -65,6 +103,18 @@ function setupEventListeners() {
         updateDateDisplay();
         updateDisplay();
     });
+}
+
+// Zoom to selected city
+function zoomToCity(city) {
+    const config = cityConfigs[city];
+    if (config) {
+        if (city === 'all') {
+            map.flyToBounds(config.bounds, { padding: [50, 50], duration: 1.5 });
+        } else {
+            map.flyTo(config.center, config.zoom, { duration: 1.5 });
+        }
+    }
 }
 
 // Update date display
@@ -99,8 +149,9 @@ function updateMarkers() {
     const filteredEvents = artEvents.filter(event => {
         const eventDate = new Date(event.date);
         const inRange = eventDate >= startDate && eventDate <= endDate;
-        const typeMatch = currentFilter === 'all' || event.type === currentFilter;
-        return inRange && typeMatch;
+        const typeMatch = currentTypeFilter === 'all' || event.type === currentTypeFilter;
+        const cityMatch = currentCityFilter === 'all' || event.city === currentCityFilter;
+        return inRange && typeMatch && cityMatch;
     });
 
     // Add markers
@@ -179,8 +230,9 @@ function updateStats() {
     const filteredEvents = artEvents.filter(event => {
         const eventDate = new Date(event.date);
         const inRange = eventDate >= startDate && eventDate <= endDate;
-        const typeMatch = currentFilter === 'all' || event.type === currentFilter;
-        return inRange && typeMatch;
+        const typeMatch = currentTypeFilter === 'all' || event.type === currentTypeFilter;
+        const cityMatch = currentCityFilter === 'all' || event.city === currentCityFilter;
+        return inRange && typeMatch && cityMatch;
     });
 
     const auctions = filteredEvents.filter(e => e.type === 'auction').length;
