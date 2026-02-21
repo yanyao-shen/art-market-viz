@@ -131,6 +131,7 @@ function updateDateDisplay() {
 function updateDisplay() {
     updateMarkers();
     updateStats();
+    updateLinks();
 }
 
 // Update map markers
@@ -263,4 +264,39 @@ async function fetchRealData() {
     // - Gallery websites (scraping)
     
     console.log('Real data fetching not implemented yet');
+}
+
+// Update links section based on selected city
+function updateLinks() {
+    const container = document.getElementById('linksContainer');
+    if (!container) return;
+
+    let links = [];
+    
+    // Get links for selected city + global links
+    if (currentCityFilter === 'all') {
+        // Show global links when viewing all cities
+        links = referenceLinks['global'] || [];
+    } else {
+        // Show city-specific links + global links
+        const cityLinks = referenceLinks[currentCityFilter] || [];
+        const globalLinks = referenceLinks['global'] || [];
+        links = [...cityLinks, ...globalLinks];
+    }
+
+    // Render links
+    if (links.length === 0) {
+        container.innerHTML = '<div style="font-size: 0.875rem; color: var(--text-secondary);">暂无链接</div>';
+        return;
+    }
+
+    container.innerHTML = links.map(link => `
+        <div class="link-item">
+            <div class="link-icon"></div>
+            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="link-text">
+                ${link.name}
+            </a>
+            <span class="link-external">↗</span>
+        </div>
+    `).join('');
 }

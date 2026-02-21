@@ -297,6 +297,62 @@
             font-weight: 500;
         }
 
+        /* Links Section */
+        .links-section {
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--border);
+        }
+
+        .links-title {
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            color: var(--text-secondary);
+            margin-bottom: 0.75rem;
+        }
+
+        .link-item {
+            display: flex;
+            align-items: center;
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .link-item:last-child {
+            border-bottom: none;
+        }
+
+        .link-icon {
+            width: 8px;
+            height: 8px;
+            background: var(--accent);
+            border-radius: 50%;
+            margin-right: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .link-text {
+            font-size: 0.875rem;
+            color: var(--text-primary);
+            text-decoration: none;
+            transition: color 0.2s;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+
+        .link-text:hover {
+            color: var(--accent);
+        }
+
+        .link-external {
+            font-size: 0.75rem;
+            color: var(--text-secondary);
+            margin-left: 0.25rem;
+        }
+
         /* Custom Markers */
         .marker-pin {
             width: 32px;
@@ -425,6 +481,15 @@
                 <div class="stat-item">
                     <div class="stat-value" id="statFair">0</div>
                     <div class="stat-label">博览会</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="control-section">
+            <div class="links-section">
+                <div class="links-title">资料链接</div>
+                <div id="linksContainer">
+                    <!-- Links will be populated by JavaScript -->
                 </div>
             </div>
         </div>
