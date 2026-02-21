@@ -131,7 +131,6 @@ function updateDateDisplay() {
 function updateDisplay() {
     updateMarkers();
     updateStats();
-    updateLinks();
 }
 
 // Update map markers
@@ -210,6 +209,12 @@ function createPopupContent(event) {
         ? `${formatDate(event.date)} - ${formatDate(event.endDate)}`
         : formatDate(event.date);
 
+    // Get link for this venue
+    const venueLink = venueLinks[event.venue] || '';
+    const linkHtml = venueLink 
+        ? `<a href="${venueLink}" target="_blank" rel="noopener noreferrer" class="event-link">访问官网 ↗</a>`
+        : '';
+
     return `
         <div class="event-card">
             <span class="event-type ${event.type}">${typeLabels[event.type]}</span>
@@ -217,6 +222,7 @@ function createPopupContent(event) {
             <div class="event-venue">${event.venueCn}</div>
             <div class="event-date">${dateDisplay}</div>
             ${event.price ? `<div class="event-price">${event.price}</div>` : ''}
+            ${linkHtml}
         </div>
     `;
 }

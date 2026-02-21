@@ -1,39 +1,35 @@
-// Art market reference links by category and city
-const referenceLinks = {
-    'New York': [
-        { name: 'Christie\'s New York', url: 'https://www.christies.com/en/locations/new-york' },
-        { name: 'Sotheby\'s New York', url: 'https://www.sothebys.com/en/departments/new-york' },
-        { name: 'The Armory Show', url: 'https://thearmoryshow.com' },
-        { name: 'Frieze New York', url: 'https://frieze.com/fairs/frieze-new-york' },
-        { name: 'Gagosian Gallery', url: 'https://gagosian.com/locations/new-york/' },
-        { name: 'David Zwirner', url: 'https://www.davidzwirner.com' }
-    ],
-    'Beijing': [
-        { name: '保利拍卖', url: 'https://www.polyauction.com' },
-        { name: '中国嘉德', url: 'https://www.cguardian.com' },
-        { name: 'UCCA尤伦斯', url: 'https://ucca.org.cn' },
-        { name: '北京当代艺博会', url: 'https://www.beijingcontemporary.com' },
-        { name: '长征空间', url: 'http://www.longmarchspace.com' }
-    ],
-    'Shanghai': [
-        { name: '西岸艺术与设计博览会', url: 'https://www.westbund.com.cn' },
-        { name: 'ART021', url: 'https://www.art021.com' },
-        { name: '上海当代艺术博物馆', url: 'https://www.powerstationofart.com' },
-        { name: '西泠印社拍卖', url: 'https://www.xlym.cn' }
-    ],
-    'Hong Kong': [
-        { name: '佳士得香港', url: 'https://www.christies.com/en/locations/hong-kong' },
-        { name: '苏富比香港', url: 'https://www.sothebys.com/en/departments/hong-kong' },
-        { name: 'Art Basel Hong Kong', url: 'https://artbasel.com/hong-kong' },
-        { name: 'Art Central', url: 'https://artcentralhongkong.com' },
-        { name: '藝術門画廊', url: 'https://www.pearllam.com' }
-    ],
-    'global': [
-        { name: 'Artnet', url: 'https://www.artnet.com' },
-        { name: 'Artsy', url: 'https://www.artsy.net' },
-        { name: 'Artprice', url: 'https://www.artprice.com' },
-        { name: 'The Art Newspaper', url: 'https://www.theartnewspaper.com' }
-    ]
+// Art market reference links by venue
+const venueLinks = {
+    "Christie's New York": "https://www.christies.com/en/locations/new-york",
+    "Sotheby's New York": "https://www.sothebys.com/en/departments/new-york",
+    "Phillips New York": "https://www.phillips.com/locations/new-york",
+    "Christie's Hong Kong": "https://www.christies.com/en/locations/hong-kong",
+    "Sotheby's Hong Kong": "https://www.sothebys.com/en/departments/hong-kong",
+    "Bonhams Hong Kong": "https://www.bonhams.com/locations/hong-kong/",
+    "Poly Auction Beijing": "https://www.polyauction.com",
+    "China Guardian Beijing": "https://www.cguardian.com",
+    "Xiling Yinshe Shanghai": "https://www.xlym.cn",
+    "Gagosian Gallery": "https://gagosian.com/locations/new-york/",
+    "David Zwirner": "https://www.davidzwirner.com",
+    "Pace Gallery": "https://www.pacegallery.com",
+    "FQM": "https://fqmnyc.com",
+    "bitforms gallery": "https://bitforms.art",
+    "Fraenkel Gallery": "https://fraenkelgallery.com",
+    "China Institute Gallery": "https://chinainstitute.org/gallery/",
+    "UCCA Center for Contemporary Art": "https://ucca.org.cn",
+    "Power Station of Art": "https://www.powerstationofart.com",
+    "Pace Beijing": "https://www.pacegallery.com/beijing/",
+    "Pearl Lam Galleries": "https://www.pearllam.com",
+    "Long March Space": "http://www.longmarchspace.com",
+    "Javits Center": "https://thearmoryshow.com",
+    "Hong Kong Convention Centre": "https://artbasel.com/hong-kong",
+    "The Shed": "https://frieze.com/fairs/frieze-new-york",
+    "West Bund Art Center": "https://www.westbund.com.cn",
+    "Shanghai Exhibition Center": "https://www.art021.com",
+    "Multiple Venues": "https://asiaweeknewyork.com",
+    "Central Harbourfront": "https://artcentralhongkong.com",
+    "National Agricultural Exhibition Center": "https://www.beijingcontemporary.com",
+    "Park Avenue Armory": "https://www.tefaf.com/fairs/tefaf-new-york-spring"
 };
 
 // Mock data for art market events
@@ -546,5 +542,5 @@ function formatDate(dateStr) {
 
 // Export for use in app.js
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { artEvents, referenceLinks, getEventsByDateRange, getEventsByCity, formatDate };
+    module.exports = { artEvents, venueLinks, getEventsByDateRange, getEventsByCity, formatDate };
 }
