@@ -4,7 +4,7 @@
 let map;
 let markers = [];
 let currentTypeFilter = 'all';
-let currentCityFilter = 'all';
+let currentCityFilter = 'New York';
 let currentDate = new Date('2026-02-22');
 
 // City configurations for zooming
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize Leaflet map
 function initMap() {
-    const config = cityConfigs['all'];
+    const config = cityConfigs[currentCityFilter];
     
     map = L.map('map', {
         center: config.center,
@@ -67,8 +67,10 @@ function initMap() {
         maxZoom: 20
     }).addTo(map);
 
-    // Fit bounds to show both NYC and China regions
-    map.fitBounds(config.bounds, { padding: [50, 50] });
+    // Fit bounds to show selected city
+    if (currentCityFilter === 'all') {
+        map.fitBounds(config.bounds, { padding: [50, 50] });
+    }
 }
 
 // Setup event listeners
@@ -209,8 +211,14 @@ function createPopupContent(event) {
         ? `${formatDate(event.date)} - ${formatDate(event.endDate)}`
         : formatDate(event.date);
 
-    // Get link for this venue
-    const venueLink = venueLinks[event.venue] || '';
+    // Get link for this venue - try exact match first, then fallback
+    let venueLink = venueLinks[event.venue];
+    
+    // Debug: log if link not found
+    if (!venueLink) {
+        console.log('No link found for venue:', event.venue);
+    }
+    
     const linkHtml = venueLink 
         ? `<a href="${venueLink}" target="_blank" rel="noopener noreferrer" class="event-link">访问官网 ↗</a>`
         : '';
