@@ -4,15 +4,15 @@
 let map;
 let markers = [];
 let currentTypeFilter = 'all';
-let currentCityFilter = 'New York';
-let currentDate = new Date('2026-02-22');
+let currentCityFilter = 'all';
+let currentDate = new Date();
 
 // City configurations for zooming
 const cityConfigs = {
     'all': {
-        center: [45, 0],
-        zoom: 2,
-        bounds: [[30, -125], [50, 125]]
+        center: [35, 105],
+        zoom: 3,
+        bounds: [[20, 70], [50, 140]]
     },
     'New York': {
         center: [40.7128, -74.0060],
@@ -35,6 +35,60 @@ const cityConfigs = {
         bounds: [[22.1, 113.9], [22.5, 114.4]]
     }
 };
+
+// Convert exhibition data to events format
+function convertExhibitionsToEvents() {
+    const events = [];
+    
+    if (!EXHIBITION_DATA || !EXHIBITION_DATA.cities) {
+        console.warn('No exhibition data available');
+        return events;
+    }
+    
+    for (const [cityName, cityData] of Object.entries(EXHIBITION_DATA.cities)) {
+        if (cityData.exhibitions) {
+            for (const ex of cityData.exhibitions) {
+                // Generate approximate location based on district
+                const location = getApproximateLocation(cityName, ex.district);
+                
+                events.push({
+                    id: ex.id,
+                    title: ex.title,
+                    titleCn: ex.title,
+                    artist: ex.artist,
+                    venue: ex.gallery,
+                    venueCn: ex.gallery,
+                    city: cityName,
+                    district: ex.district,
+                    date: ex.startDate,
+                    endDate: ex.endDate,
+                    type: ex.type,
+                    description: ex.description,
+                    location: location,
+                    website: ex.website,
+                    verified: ex.verified
+                });
+            }
+        }
+    }
+    
+    return events;
+}
+
+// Get approximate coordinates for districts
+function getApproximateLocation(city, district) {
+    const baseCoords = {
+        'New York': [40.7128, -74.0060],
+        'Beijing': [39.9042, 116.4074],
+        'Shanghai': [31.2304, 121.4737],
+        'Hong Kong': [22.3193, 114.1694]
+    };
+    
+    const base = baseCoords[city] || [0, 0];
+    // Add small random offset to spread markers
+    const offset = (Math.random() - 0.5) * 0.04;
+    return [base[0] + offset, base[1] + offset];
+}
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -76,9 +130,9 @@ function initMap() {
 // Setup event listeners
 function setupEventListeners() {
     // Type filter buttons
-    document.querySelectorAll('.filter-btn.type-btn').forEach(btn => {
+    document.querySelectorAll('.filter-btn[data-type]').forEach(btn => {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn.type-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.filter-btn[data-type]').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             currentTypeFilter = this.dataset.type;
             updateDisplay();
@@ -86,9 +140,9 @@ function setupEventListeners() {
     });
 
     // City filter buttons
-    document.querySelectorAll('.filter-btn.city-btn').forEach(btn => {
+    document.querySelectorAll('.filter-btn[data-city]').forEach(btn => {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn.city-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.filter-btn[data-city]').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             currentCityFilter = this.dataset.city;
             zoomToCity(currentCityFilter);
@@ -98,13 +152,15 @@ function setupEventListeners() {
 
     // Timeline slider
     const timeline = document.getElementById('timeline');
-    timeline.addEventListener('input', function() {
-        const daysOffset = parseInt(this.value) - 30; // 0 = 30 days ago, 30 = today, 120 = 90 days future
-        currentDate = new Date('2026-02-22');
-        currentDate.setDate(currentDate.getDate() + daysOffset);
-        updateDateDisplay();
-        updateDisplay();
-    });
+    if (timeline) {
+        timeline.addEventListener('input', function() {
+            const daysOffset = parseInt(this.value) - 30;
+            currentDate = new Date();
+            currentDate.setDate(currentDate.getDate() + daysOffset);
+            updateDateDisplay();
+            updateDisplay();
+        });
+    }
 }
 
 // Zoom to selected city
@@ -126,7 +182,10 @@ function updateDateDisplay() {
         month: 'long',
         day: 'numeric'
     });
-    document.getElementById('currentDate').textContent = dateStr;
+    const dateEl = document.getElementById('currentDate');
+    if (dateEl) {
+        dateEl.textContent = dateStr;
+    }
 }
 
 // Update all displays
@@ -141,7 +200,14 @@ function updateMarkers() {
     markers.forEach(marker => map.removeLayer(marker));
     markers = [];
 
-    // Calculate date range (30 days before to 90 days after current date)
+    const artEvents = convertExhibitionsToEvents();
+    
+    if (artEvents.length === 0) {
+        console.log('No events to display');
+        return;
+    }
+
+    // Calculate date range
     const startDate = new Date(currentDate);
     startDate.setDate(startDate.getDate() - 30);
     const endDate = new Date(currentDate);
@@ -149,8 +215,9 @@ function updateMarkers() {
 
     // Filter events
     const filteredEvents = artEvents.filter(event => {
-        const eventDate = new Date(event.date);
-        const inRange = eventDate >= startDate && eventDate <= endDate;
+        const eventStart = new Date(event.date);
+        const eventEnd = event.endDate ? new Date(event.endDate) : eventStart;
+        const inRange = (eventStart <= endDate && eventEnd >= startDate);
         const typeMatch = currentTypeFilter === 'all' || event.type === currentTypeFilter;
         const cityMatch = currentCityFilter === 'all' || event.city === currentCityFilter;
         return inRange && typeMatch && cityMatch;
@@ -159,13 +226,19 @@ function updateMarkers() {
     // Add markers
     filteredEvents.forEach(event => {
         const marker = createMarker(event);
-        markers.push(marker);
-        marker.addTo(map);
+        if (marker) {
+            markers.push(marker);
+            marker.addTo(map);
+        }
     });
 }
 
 // Create custom marker
 function createMarker(event) {
+    if (!event.location || event.location[0] === 0) {
+        return null;
+    }
+    
     const iconHtml = `<div class="marker-pin ${event.type}">${getEventIcon(event.type)}</div>`;
     
     const customIcon = L.divIcon({
@@ -211,25 +284,21 @@ function createPopupContent(event) {
         ? `${formatDate(event.date)} - ${formatDate(event.endDate)}`
         : formatDate(event.date);
 
-    // Get link for this venue - try exact match first, then fallback
-    let venueLink = venueLinks[event.venue];
-    
-    // Debug: log if link not found
-    if (!venueLink) {
-        console.log('No link found for venue:', event.venue);
-    }
-    
-    const linkHtml = venueLink 
-        ? `<a href="${venueLink}" target="_blank" rel="noopener noreferrer" class="event-link">访问官网 ↗</a>`
+    const linkHtml = event.website 
+        ? `<div style="margin-top: 0.75rem; padding-top: 0.75rem; border-top: 1px solid var(--border);"><a href="${event.website}" target="_blank" rel="noopener noreferrer" style="color: var(--accent); text-decoration: none;">访问官网 ↗</a></div>`
         : '';
+    
+    const verifiedBadge = event.verified 
+        ? '' 
+        : '<span style="font-size: 0.7rem; color: #999; margin-left: 0.5rem;">(待验证)</span>';
 
     return `
         <div class="event-card">
             <span class="event-type ${event.type}">${typeLabels[event.type]}</span>
-            <div class="event-title">${event.titleCn}</div>
+            <div class="event-title">${event.titleCn}${verifiedBadge}</div>
             <div class="event-venue">${event.venueCn}</div>
             <div class="event-date">${dateDisplay}</div>
-            ${event.price ? `<div class="event-price">${event.price}</div>` : ''}
+            ${event.description ? `<div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">${event.description.substring(0, 100)}...</div>` : ''}
             ${linkHtml}
         </div>
     `;
@@ -237,14 +306,17 @@ function createPopupContent(event) {
 
 // Update statistics
 function updateStats() {
+    const artEvents = convertExhibitionsToEvents();
+    
     const startDate = new Date(currentDate);
     startDate.setDate(startDate.getDate() - 30);
     const endDate = new Date(currentDate);
     endDate.setDate(endDate.getDate() + 90);
 
     const filteredEvents = artEvents.filter(event => {
-        const eventDate = new Date(event.date);
-        const inRange = eventDate >= startDate && eventDate <= endDate;
+        const eventStart = new Date(event.date);
+        const eventEnd = event.endDate ? new Date(event.endDate) : eventStart;
+        const inRange = (eventStart <= endDate && eventEnd >= startDate);
         const typeMatch = currentTypeFilter === 'all' || event.type === currentTypeFilter;
         const cityMatch = currentCityFilter === 'all' || event.city === currentCityFilter;
         return inRange && typeMatch && cityMatch;
@@ -254,10 +326,15 @@ function updateStats() {
     const galleries = filteredEvents.filter(e => e.type === 'gallery').length;
     const fairs = filteredEvents.filter(e => e.type === 'fair').length;
 
-    document.getElementById('statTotal').textContent = filteredEvents.length;
-    document.getElementById('statAuction').textContent = auctions;
-    document.getElementById('statGallery').textContent = galleries;
-    document.getElementById('statFair').textContent = fairs;
+    const statTotal = document.getElementById('statTotal');
+    const statAuction = document.getElementById('statAuction');
+    const statGallery = document.getElementById('statGallery');
+    const statFair = document.getElementById('statFair');
+
+    if (statTotal) statTotal.textContent = filteredEvents.length;
+    if (statAuction) statAuction.textContent = auctions;
+    if (statGallery) statGallery.textContent = galleries;
+    if (statFair) statFair.textContent = fairs;
 }
 
 // Format date helper
@@ -269,48 +346,14 @@ function formatDate(dateStr) {
     });
 }
 
-// Future enhancement: Real data fetching
-async function fetchRealData() {
-    // This would fetch from APIs like:
-    // - Artnet API
-    // - Artsy API
-    // - Auction house APIs
-    // - Gallery websites (scraping)
-    
-    console.log('Real data fetching not implemented yet');
+// Display data source info
+function displayDataInfo() {
+    if (EXHIBITION_DATA && EXHIBITION_DATA.lastUpdated) {
+        const date = new Date(EXHIBITION_DATA.lastUpdated);
+        console.log('Data last updated:', date.toLocaleString('zh-CN'));
+        console.log('Next update:', EXHIBITION_DATA.nextUpdate);
+    }
 }
 
-// Update links section based on selected city
-function updateLinks() {
-    const container = document.getElementById('linksContainer');
-    if (!container) return;
-
-    let links = [];
-    
-    // Get links for selected city + global links
-    if (currentCityFilter === 'all') {
-        // Show global links when viewing all cities
-        links = referenceLinks['global'] || [];
-    } else {
-        // Show city-specific links + global links
-        const cityLinks = referenceLinks[currentCityFilter] || [];
-        const globalLinks = referenceLinks['global'] || [];
-        links = [...cityLinks, ...globalLinks];
-    }
-
-    // Render links
-    if (links.length === 0) {
-        container.innerHTML = '<div style="font-size: 0.875rem; color: var(--text-secondary);">暂无链接</div>';
-        return;
-    }
-
-    container.innerHTML = links.map(link => `
-        <div class="link-item">
-            <div class="link-icon"></div>
-            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="link-text">
-                ${link.name}
-            </a>
-            <span class="link-external">↗</span>
-        </div>
-    `).join('');
-}
+// Call on load
+displayDataInfo();
