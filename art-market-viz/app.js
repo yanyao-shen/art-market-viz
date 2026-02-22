@@ -10,14 +10,24 @@ let currentDate = new Date();
 // City configurations for zooming
 const cityConfigs = {
     'all': {
-        center: [35, 105],
+        center: [35, -95],
         zoom: 3,
-        bounds: [[20, 70], [50, 140]]
+        bounds: [[25, -125], [50, -65]]
     },
     'New York': {
         center: [40.7128, -74.0060],
         zoom: 12,
         bounds: [[40.6, -74.2], [40.9, -73.8]]
+    },
+    'Los Angeles': {
+        center: [34.0522, -118.2437],
+        zoom: 11,
+        bounds: [[33.8, -118.5], [34.4, -118.0]]
+    },
+    'Chicago': {
+        center: [41.8781, -87.6298],
+        zoom: 11,
+        bounds: [[41.6, -88.0], [42.1, -87.3]]
     },
     'Beijing': {
         center: [39.9042, 116.4074],
@@ -267,7 +277,8 @@ function getEventIcon(type) {
     const icons = {
         auction: '拍',
         gallery: '展',
-        fair: '博'
+        fair: '博',
+        opportunity: '投'
     };
     return icons[type] || '●';
 }
@@ -277,7 +288,8 @@ function createPopupContent(event) {
     const typeLabels = {
         auction: '拍卖',
         gallery: '展览',
-        fair: '艺博会'
+        fair: '艺博会',
+        opportunity: '投稿机会'
     };
 
     const dateDisplay = event.endDate 
@@ -294,9 +306,9 @@ function createPopupContent(event) {
 
     return `
         <div class="event-card">
-            <span class="event-type ${event.type}">${typeLabels[event.type]}</span>
-            <div class="event-title">${event.titleCn}${verifiedBadge}</div>
-            <div class="event-venue">${event.venueCn}</div>
+            <span class="event-type ${event.type}">${typeLabels[event.type] || event.type}</span>
+            <div class="event-title">${event.titleCn || event.title}${verifiedBadge}</div>
+            <div class="event-venue">${event.venueCn || event.gallery || event.organization}</div>
             <div class="event-date">${dateDisplay}</div>
             ${event.description ? `<div style="font-size: 0.8rem; color: var(--text-secondary); margin-top: 0.5rem;">${event.description.substring(0, 100)}...</div>` : ''}
             ${linkHtml}

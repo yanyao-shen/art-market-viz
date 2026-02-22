@@ -346,6 +346,15 @@
             background: #7c3aed;
         }
 
+        .marker-pin.opportunity {
+            background: #f59e0b;
+        }
+
+        .filter-btn.opportunity.active {
+            background: #f59e0b;
+            border-color: #f59e0b;
+        }
+
         /* Mobile Responsive */
         @media (max-width: 768px) {
             .controls {
@@ -390,7 +399,7 @@
     <header class="header">
         <div class="header-content">
             <div class="logo">Art Market <span>Pulse</span></div>
-            <div style="font-size: 0.875rem; color: var(--text-secondary);">纽约 · 上海 · 北京 · 香港</div>
+            <div style="font-size: 0.875rem; color: var(--text-secondary);">纽约 · 洛杉矶 · 芝加哥 · 北京 · 上海 · 香港</div>
         </div>
     </header>
 
@@ -400,6 +409,8 @@
             <div class="filter-group">
                 <button class="filter-btn city-btn" data-city="all">全部</button>
                 <button class="filter-btn city-btn active" data-city="New York">纽约</button>
+                <button class="filter-btn city-btn" data-city="Los Angeles">洛杉矶</button>
+                <button class="filter-btn city-btn" data-city="Chicago">芝加哥</button>
                 <button class="filter-btn city-btn" data-city="Beijing">北京</button>
                 <button class="filter-btn city-btn" data-city="Shanghai">上海</button>
                 <button class="filter-btn city-btn" data-city="Hong Kong">香港</button>
@@ -413,6 +424,7 @@
                 <button class="filter-btn type-btn auction" data-type="auction">拍卖</button>
                 <button class="filter-btn type-btn gallery" data-type="gallery">画廊</button>
                 <button class="filter-btn type-btn fair" data-type="fair">博览会</button>
+                <button class="filter-btn type-btn opportunity" data-type="opportunity">投稿机会</button>
             </div>
         </div>
 
