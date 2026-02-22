@@ -1,11 +1,14 @@
-// Art Market Visualization App
-// Main application logic
+// Debug version of app.js
+// Added console logging to diagnose issues
 
 let map;
 let markers = [];
 let currentTypeFilter = 'all';
 let currentCityFilter = 'all';
 let currentDate = new Date();
+
+console.log('=== APP.JS LOADED ===');
+console.log('Current date:', currentDate);
 
 // City configurations for zooming
 const cityConfigs = {
@@ -48,6 +51,7 @@ const cityConfigs = {
 
 // Convert exhibition data to events format
 function convertExhibitionsToEvents() {
+    console.log('=== convertExhibitionsToEvents called ===');
     const events = [];
     
     if (!EXHIBITION_DATA || !EXHIBITION_DATA.cities) {
@@ -55,10 +59,12 @@ function convertExhibitionsToEvents() {
         return events;
     }
     
+    console.log('EXHIBITION_DATA found, cities:', Object.keys(EXHIBITION_DATA.cities));
+    
     for (const [cityName, cityData] of Object.entries(EXHIBITION_DATA.cities)) {
+        console.log(`Processing ${cityName}:`, cityData.exhibitions ? cityData.exhibitions.length : 0, 'exhibitions');
         if (cityData.exhibitions) {
             for (const ex of cityData.exhibitions) {
-                // Generate approximate location based on district
                 const location = getApproximateLocation(cityName, ex.district);
                 
                 events.push({
@@ -82,6 +88,7 @@ function convertExhibitionsToEvents() {
         }
     }
     
+    console.log('Total events created:', events.length);
     return events;
 }
 
@@ -97,25 +104,28 @@ function getApproximateLocation(city, district) {
     };
     
     const base = baseCoords[city] || [0, 0];
-    // Add small random offset to spread markers
     const offset = (Math.random() - 0.5) * 0.04;
     return [base[0] + offset, base[1] + offset];
 }
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
+    console.log('=== DOMContentLoaded ===');
+    console.log('EXHIBITION_DATA exists:', typeof EXHIBITION_DATA !== 'undefined');
+    
     initMap();
     setupEventListeners();
     updateDisplay();
     
-    // Hide loading screen
     setTimeout(() => {
-        document.getElementById('loading').style.display = 'none';
+        const loading = document.getElementById('loading');
+        if (loading) loading.style.display = 'none';
     }, 500);
 });
 
 // Initialize Leaflet map
 function initMap() {
+    console.log('=== initMap called ===');
     const config = cityConfigs[currentCityFilter];
     
     map = L.map('map', {
@@ -126,14 +136,12 @@ function initMap() {
         scrollWheelZoom: true
     });
 
-    // Add tile layer - using CartoDB Positron for clean, minimal look
     L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
         attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions">CARTO</a>',
         subdomains: 'abcd',
         maxZoom: 20
     }).addTo(map);
 
-    // Fit bounds to show selected city
     if (currentCityFilter === 'all') {
         map.fitBounds(config.bounds, { padding: [50, 50] });
     }
@@ -141,28 +149,29 @@ function initMap() {
 
 // Setup event listeners
 function setupEventListeners() {
-    // Type filter buttons
+    console.log('=== setupEventListeners called ===');
+    
     document.querySelectorAll('.filter-btn[data-type]').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.filter-btn[data-type]').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             currentTypeFilter = this.dataset.type;
+            console.log('Type filter changed to:', currentTypeFilter);
             updateDisplay();
         });
     });
 
-    // City filter buttons
     document.querySelectorAll('.filter-btn[data-city]').forEach(btn => {
         btn.addEventListener('click', function() {
             document.querySelectorAll('.filter-btn[data-city]').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
             currentCityFilter = this.dataset.city;
+            console.log('City filter changed to:', currentCityFilter);
             zoomToCity(currentCityFilter);
             updateDisplay();
         });
     });
 
-    // Timeline slider
     const timeline = document.getElementById('timeline');
     if (timeline) {
         timeline.addEventListener('input', function() {
@@ -202,40 +211,48 @@ function updateDateDisplay() {
 
 // Update all displays
 function updateDisplay() {
+    console.log('=== updateDisplay called ===');
     updateMarkers();
     updateStats();
 }
 
 // Update map markers
 function updateMarkers() {
-    // Clear existing markers
+    console.log('=== updateMarkers called ===');
     markers.forEach(marker => map.removeLayer(marker));
     markers = [];
 
     const artEvents = convertExhibitionsToEvents();
+    console.log('artEvents count:', artEvents.length);
     
     if (artEvents.length === 0) {
         console.log('No events to display');
         return;
     }
 
-    // Calculate date range
     const startDate = new Date(currentDate);
     startDate.setDate(startDate.getDate() - 30);
     const endDate = new Date(currentDate);
     endDate.setDate(endDate.getDate() + 90);
 
-    // Filter events
+    console.log('Date range:', startDate, 'to', endDate);
+
     const filteredEvents = artEvents.filter(event => {
         const eventStart = new Date(event.date);
         const eventEnd = event.endDate ? new Date(event.endDate) : eventStart;
         const inRange = (eventStart <= endDate && eventEnd >= startDate);
         const typeMatch = currentTypeFilter === 'all' || event.type === currentTypeFilter;
         const cityMatch = currentCityFilter === 'all' || event.city === currentCityFilter;
+        
+        if (cityMatch && typeMatch) {
+            console.log('Event:', event.title, 'inRange:', inRange, 'dates:', event.date, '-', event.endDate);
+        }
+        
         return inRange && typeMatch && cityMatch;
     });
 
-    // Add markers
+    console.log('Filtered events:', filteredEvents.length);
+
     filteredEvents.forEach(event => {
         const marker = createMarker(event);
         if (marker) {
@@ -248,6 +265,7 @@ function updateMarkers() {
 // Create custom marker
 function createMarker(event) {
     if (!event.location || event.location[0] === 0) {
+        console.log('No location for event:', event.title);
         return null;
     }
     
@@ -263,7 +281,6 @@ function createMarker(event) {
 
     const marker = L.marker(event.location, { icon: customIcon });
     
-    // Create popup content
     const popupContent = createPopupContent(event);
     marker.bindPopup(popupContent, {
         className: 'custom-popup',
@@ -320,6 +337,7 @@ function createPopupContent(event) {
 
 // Update statistics
 function updateStats() {
+    console.log('=== updateStats called ===');
     const artEvents = convertExhibitionsToEvents();
     
     const startDate = new Date(currentDate);
@@ -339,6 +357,8 @@ function updateStats() {
     const auctions = filteredEvents.filter(e => e.type === 'auction').length;
     const galleries = filteredEvents.filter(e => e.type === 'gallery').length;
     const fairs = filteredEvents.filter(e => e.type === 'fair').length;
+
+    console.log('Stats - Total:', filteredEvents.length, 'Auctions:', auctions, 'Galleries:', galleries, 'Fairs:', fairs);
 
     const statTotal = document.getElementById('statTotal');
     const statAuction = document.getElementById('statAuction');
@@ -360,14 +380,4 @@ function formatDate(dateStr) {
     });
 }
 
-// Display data source info
-function displayDataInfo() {
-    if (EXHIBITION_DATA && EXHIBITION_DATA.lastUpdated) {
-        const date = new Date(EXHIBITION_DATA.lastUpdated);
-        console.log('Data last updated:', date.toLocaleString('zh-CN'));
-        console.log('Next update:', EXHIBITION_DATA.nextUpdate);
-    }
-}
-
-// Call on load
-displayDataInfo();
+console.log('=== APP.JS END ===');
