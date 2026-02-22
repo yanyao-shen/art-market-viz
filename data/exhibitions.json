@@ -1,8 +1,4 @@
-// Auto-generated exhibition data
-// Last updated: 2026-02-22T00:26:47.633Z
-// Next update: 2025-03-02T03:00:00Z
-
-const EXHIBITION_DATA = {
+{
   "lastUpdated": "2026-02-22T00:26:47.633Z",
   "nextUpdate": "2025-03-02T03:00:00Z",
   "dataSource": "Base gallery list + mock exhibitions (Week 1)",
@@ -1440,9 +1436,4 @@ const EXHIBITION_DATA = {
       ]
     }
   }
-};
-
-// Export for use in app.js
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = EXHIBITION_DATA;
 }
