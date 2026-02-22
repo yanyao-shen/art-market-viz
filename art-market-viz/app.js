@@ -3,8 +3,38 @@
 
 let map;
 let markers = [];
-let currentFilter = 'all';
+let currentTypeFilter = 'all';
+let currentCityFilter = 'New York';
 let currentDate = new Date('2026-02-22');
+
+// City configurations for zooming
+const cityConfigs = {
+    'all': {
+        center: [45, 0],
+        zoom: 2,
+        bounds: [[30, -125], [50, 125]]
+    },
+    'New York': {
+        center: [40.7128, -74.0060],
+        zoom: 12,
+        bounds: [[40.6, -74.2], [40.9, -73.8]]
+    },
+    'Beijing': {
+        center: [39.9042, 116.4074],
+        zoom: 11,
+        bounds: [[39.7, 116.1], [40.1, 116.7]]
+    },
+    'Shanghai': {
+        center: [31.2304, 121.4737],
+        zoom: 11,
+        bounds: [[31.0, 121.2], [31.5, 121.8]]
+    },
+    'Hong Kong': {
+        center: [22.3193, 114.1694],
+        zoom: 11,
+        bounds: [[22.1, 113.9], [22.5, 114.4]]
+    }
+};
 
 // Initialize the application
 document.addEventListener('DOMContentLoaded', function() {
@@ -20,10 +50,11 @@ document.addEventListener('DOMContentLoaded', function() {
 
 // Initialize Leaflet map
 function initMap() {
-    // Center map between NYC and China
+    const config = cityConfigs[currentCityFilter];
+    
     map = L.map('map', {
-        center: [45, 0],
-        zoom: 2,
+        center: config.center,
+        zoom: config.zoom,
         minZoom: 2,
         maxZoom: 18,
         scrollWheelZoom: true
@@ -36,22 +67,31 @@ function initMap() {
         maxZoom: 20
     }).addTo(map);
 
-    // Fit bounds to show both NYC and China regions
-    const bounds = L.latLngBounds(
-        [30, -125], // Southwest
-        [50, 125]   // Northeast
-    );
-    map.fitBounds(bounds, { padding: [50, 50] });
+    // Fit bounds to show selected city
+    if (currentCityFilter === 'all') {
+        map.fitBounds(config.bounds, { padding: [50, 50] });
+    }
 }
 
 // Setup event listeners
 function setupEventListeners() {
-    // Filter buttons
-    document.querySelectorAll('.filter-btn').forEach(btn => {
+    // Type filter buttons
+    document.querySelectorAll('.filter-btn.type-btn').forEach(btn => {
         btn.addEventListener('click', function() {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.filter-btn.type-btn').forEach(b => b.classList.remove('active'));
             this.classList.add('active');
-            currentFilter = this.dataset.type;
+            currentTypeFilter = this.dataset.type;
+            updateDisplay();
+        });
+    });
+
+    // City filter buttons
+    document.querySelectorAll('.filter-btn.city-btn').forEach(btn => {
+        btn.addEventListener('click', function() {
+            document.querySelectorAll('.filter-btn.city-btn').forEach(b => b.classList.remove('active'));
+            this.classList.add('active');
+            currentCityFilter = this.dataset.city;
+            zoomToCity(currentCityFilter);
             updateDisplay();
         });
     });
@@ -65,6 +105,18 @@ function setupEventListeners() {
         updateDateDisplay();
         updateDisplay();
     });
+}
+
+// Zoom to selected city
+function zoomToCity(city) {
+    const config = cityConfigs[city];
+    if (config) {
+        if (city === 'all') {
+            map.flyToBounds(config.bounds, { padding: [50, 50], duration: 1.5 });
+        } else {
+            map.flyTo(config.center, config.zoom, { duration: 1.5 });
+        }
+    }
 }
 
 // Update date display
@@ -99,8 +151,9 @@ function updateMarkers() {
     const filteredEvents = artEvents.filter(event => {
         const eventDate = new Date(event.date);
         const inRange = eventDate >= startDate && eventDate <= endDate;
-        const typeMatch = currentFilter === 'all' || event.type === currentFilter;
-        return inRange && typeMatch;
+        const typeMatch = currentTypeFilter === 'all' || event.type === currentTypeFilter;
+        const cityMatch = currentCityFilter === 'all' || event.city === currentCityFilter;
+        return inRange && typeMatch && cityMatch;
     });
 
     // Add markers
@@ -158,6 +211,18 @@ function createPopupContent(event) {
         ? `${formatDate(event.date)} - ${formatDate(event.endDate)}`
         : formatDate(event.date);
 
+    // Get link for this venue - try exact match first, then fallback
+    let venueLink = venueLinks[event.venue];
+    
+    // Debug: log if link not found
+    if (!venueLink) {
+        console.log('No link found for venue:', event.venue);
+    }
+    
+    const linkHtml = venueLink 
+        ? `<a href="${venueLink}" target="_blank" rel="noopener noreferrer" class="event-link">访问官网 ↗</a>`
+        : '';
+
     return `
         <div class="event-card">
             <span class="event-type ${event.type}">${typeLabels[event.type]}</span>
@@ -165,6 +230,7 @@ function createPopupContent(event) {
             <div class="event-venue">${event.venueCn}</div>
             <div class="event-date">${dateDisplay}</div>
             ${event.price ? `<div class="event-price">${event.price}</div>` : ''}
+            ${linkHtml}
         </div>
     `;
 }
@@ -179,8 +245,9 @@ function updateStats() {
     const filteredEvents = artEvents.filter(event => {
         const eventDate = new Date(event.date);
         const inRange = eventDate >= startDate && eventDate <= endDate;
-        const typeMatch = currentFilter === 'all' || event.type === currentFilter;
-        return inRange && typeMatch;
+        const typeMatch = currentTypeFilter === 'all' || event.type === currentTypeFilter;
+        const cityMatch = currentCityFilter === 'all' || event.city === currentCityFilter;
+        return inRange && typeMatch && cityMatch;
     });
 
     const auctions = filteredEvents.filter(e => e.type === 'auction').length;
@@ -211,4 +278,39 @@ async function fetchRealData() {
     // - Gallery websites (scraping)
     
     console.log('Real data fetching not implemented yet');
+}
+
+// Update links section based on selected city
+function updateLinks() {
+    const container = document.getElementById('linksContainer');
+    if (!container) return;
+
+    let links = [];
+    
+    // Get links for selected city + global links
+    if (currentCityFilter === 'all') {
+        // Show global links when viewing all cities
+        links = referenceLinks['global'] || [];
+    } else {
+        // Show city-specific links + global links
+        const cityLinks = referenceLinks[currentCityFilter] || [];
+        const globalLinks = referenceLinks['global'] || [];
+        links = [...cityLinks, ...globalLinks];
+    }
+
+    // Render links
+    if (links.length === 0) {
+        container.innerHTML = '<div style="font-size: 0.875rem; color: var(--text-secondary);">暂无链接</div>';
+        return;
+    }
+
+    container.innerHTML = links.map(link => `
+        <div class="link-item">
+            <div class="link-icon"></div>
+            <a href="${link.url}" target="_blank" rel="noopener noreferrer" class="link-text">
+                ${link.name}
+            </a>
+            <span class="link-external">↗</span>
+        </div>
+    `).join('');
 }
