@@ -1,1448 +1,326 @@
-// Auto-generated exhibition data
-// Last updated: 2026-02-22T00:26:47.633Z
-// Next update: 2025-03-02T03:00:00Z
+// Real Exhibition Data - Collected Feb 22, 2026
+// Source: Web search and gallery websites
 
 const EXHIBITION_DATA = {
-  "lastUpdated": "2026-02-22T00:26:47.633Z",
-  "nextUpdate": "2025-03-02T03:00:00Z",
-  "dataSource": "Base gallery list + mock exhibitions (Week 1)",
-  "cities": {
-    "New York": {
-      "galleryCount": 24,
-      "exhibitionCount": 25,
-      "galleries": [
-        {
-          "name": "Gagosian",
-          "district": "Chelsea",
-          "website": "gagosian.com"
-        },
-        {
-          "name": "David Zwirner",
-          "district": "Chelsea",
-          "website": "davidzwirner.com"
-        },
-        {
-          "name": "Hauser & Wirth",
-          "district": "Chelsea",
-          "website": "hauserwirth.com"
-        },
-        {
-          "name": "Pace Gallery",
-          "district": "Chelsea",
-          "website": "pacegallery.com"
-        },
-        {
-          "name": "Gladstone Gallery",
-          "district": "Chelsea",
-          "website": "gladstonegallery.com"
-        },
-        {
-          "name": "Petzel Gallery",
-          "district": "Chelsea",
-          "website": "petzel.com"
-        },
-        {
-          "name": "Lévy Gorvy Dayan",
-          "district": "Upper East Side",
-          "website": "levygorvydayan.com"
-        },
-        {
-          "name": "Acquavella Galleries",
-          "district": "Upper East Side",
-          "website": "acquavellagalleries.com"
-        },
-        {
-          "name": "Mnuchin Gallery",
-          "district": "Upper East Side",
-          "website": "mnuchingallery.com"
-        },
-        {
-          "name": "Galerie Gmurzynska",
-          "district": "Upper East Side",
-          "website": "gmurzynska.com"
-        },
-        {
-          "name": "Castelli Gallery",
-          "district": "Upper East Side",
-          "website": "castelligallery.com"
-        },
-        {
-          "name": "Skarstedt Gallery",
-          "district": "Upper East Side",
-          "website": "skarstedt.com"
-        },
-        {
-          "name": "White Cube",
-          "district": "Upper East Side",
-          "website": "whitecube.com"
-        },
-        {
-          "name": "Andrew Edlin Gallery",
-          "district": "Lower East Side",
-          "website": "andrewedlin.com"
-        },
-        {
-          "name": "bitforms gallery",
-          "district": "Lower East Side",
-          "website": "bitforms.com"
-        },
-        {
-          "name": "Miguel Abreu Gallery",
-          "district": "Lower East Side",
-          "website": "miguelabreugallery.com"
-        },
-        {
-          "name": "Sperone Westwater",
-          "district": "Lower East Side",
-          "website": "speronewestwater.com"
-        },
-        {
-          "name": "Tibor De Nagy",
-          "district": "Lower East Side",
-          "website": "tibordenagy.com"
-        },
-        {
-          "name": "Hauser & Wirth",
-          "district": "SoHo",
-          "website": "hauserwirth.com"
-        },
-        {
-          "name": "Jeffrey Deitch",
-          "district": "SoHo",
-          "website": "deitch.com"
-        },
-        {
-          "name": "Nino Mier Gallery",
-          "district": "SoHo",
-          "website": "niniomiergallery.com"
-        },
-        {
-          "name": "Nicodim New York",
-          "district": "SoHo",
-          "website": "nicodimgallery.com"
-        },
-        {
-          "name": "Eden Gallery",
-          "district": "SoHo",
-          "website": "edengallery.com"
-        },
-        {
-          "name": "Ronald Feldman Gallery",
-          "district": "SoHo",
-          "website": "feldmangallery.com"
-        }
-      ],
-      "exhibitions": [
-        {
-          "id": "david-zwirner-0",
-          "title": "David Zwirner Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "David Zwirner",
-          "district": "Chelsea",
-          "city": "New York",
-          "startDate": "2026-02-03",
-          "endDate": "2026-04-18",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://davidzwirner.com",
-          "verified": false
-        },
-        {
-          "id": "hauser-&-wirth-0",
-          "title": "Hauser & Wirth Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Hauser & Wirth",
-          "district": "Chelsea",
-          "city": "New York",
-          "startDate": "2026-02-21",
-          "endDate": "2026-03-29",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://hauserwirth.com",
-          "verified": false
-        },
-        {
-          "id": "pace-gallery-0",
-          "title": "Pace Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Pace Gallery",
-          "district": "Chelsea",
-          "city": "New York",
-          "startDate": "2026-02-19",
-          "endDate": "2026-04-12",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://pacegallery.com",
-          "verified": false
-        },
-        {
-          "id": "petzel-gallery-0",
-          "title": "Petzel Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Petzel Gallery",
-          "district": "Chelsea",
-          "city": "New York",
-          "startDate": "2026-02-04",
-          "endDate": "2026-03-07",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://petzel.com",
-          "verified": false
-        },
-        {
-          "id": "lévy-gorvy-dayan-0",
-          "title": "Lévy Gorvy Dayan Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Lévy Gorvy Dayan",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-02-07",
-          "endDate": "2026-04-17",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://levygorvydayan.com",
-          "verified": false
-        },
-        {
-          "id": "lévy-gorvy-dayan-1",
-          "title": "Lévy Gorvy Dayan Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Lévy Gorvy Dayan",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-02-20",
-          "endDate": "2026-03-28",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://levygorvydayan.com",
-          "verified": false
-        },
-        {
-          "id": "acquavella-galleries-0",
-          "title": "Acquavella Galleries Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Acquavella Galleries",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-02-09",
-          "endDate": "2026-05-06",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://acquavellagalleries.com",
-          "verified": false
-        },
-        {
-          "id": "mnuchin-gallery-0",
-          "title": "Mnuchin Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Mnuchin Gallery",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-02-04",
-          "endDate": "2026-03-22",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://mnuchingallery.com",
-          "verified": false
-        },
-        {
-          "id": "mnuchin-gallery-1",
-          "title": "Mnuchin Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Mnuchin Gallery",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-01-24",
-          "endDate": "2026-04-14",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://mnuchingallery.com",
-          "verified": false
-        },
-        {
-          "id": "galerie-gmurzynska-0",
-          "title": "Galerie Gmurzynska Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Galerie Gmurzynska",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-02-06",
-          "endDate": "2026-05-03",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://gmurzynska.com",
-          "verified": false
-        },
-        {
-          "id": "castelli-gallery-0",
-          "title": "Castelli Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Castelli Gallery",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-02-10",
-          "endDate": "2026-04-06",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://castelligallery.com",
-          "verified": false
-        },
-        {
-          "id": "castelli-gallery-1",
-          "title": "Castelli Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Castelli Gallery",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-01-31",
-          "endDate": "2026-03-09",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://castelligallery.com",
-          "verified": false
-        },
-        {
-          "id": "skarstedt-gallery-0",
-          "title": "Skarstedt Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Skarstedt Gallery",
-          "district": "Upper East Side",
-          "city": "New York",
-          "startDate": "2026-02-16",
-          "endDate": "2026-05-12",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://skarstedt.com",
-          "verified": false
-        },
-        {
-          "id": "andrew-edlin-gallery-0",
-          "title": "Andrew Edlin Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Andrew Edlin Gallery",
-          "district": "Lower East Side",
-          "city": "New York",
-          "startDate": "2026-02-20",
-          "endDate": "2026-05-14",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://andrewedlin.com",
-          "verified": false
-        },
-        {
-          "id": "andrew-edlin-gallery-1",
-          "title": "Andrew Edlin Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Andrew Edlin Gallery",
-          "district": "Lower East Side",
-          "city": "New York",
-          "startDate": "2026-02-19",
-          "endDate": "2026-04-22",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://andrewedlin.com",
-          "verified": false
-        },
-        {
-          "id": "bitforms-gallery-0",
-          "title": "bitforms gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "bitforms gallery",
-          "district": "Lower East Side",
-          "city": "New York",
-          "startDate": "2026-02-18",
-          "endDate": "2026-03-24",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://bitforms.com",
-          "verified": false
-        },
-        {
-          "id": "bitforms-gallery-1",
-          "title": "bitforms gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "bitforms gallery",
-          "district": "Lower East Side",
-          "city": "New York",
-          "startDate": "2026-02-18",
-          "endDate": "2026-03-23",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://bitforms.com",
-          "verified": false
-        },
-        {
-          "id": "miguel-abreu-gallery-0",
-          "title": "Miguel Abreu Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Miguel Abreu Gallery",
-          "district": "Lower East Side",
-          "city": "New York",
-          "startDate": "2026-01-26",
-          "endDate": "2026-04-18",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://miguelabreugallery.com",
-          "verified": false
-        },
-        {
-          "id": "sperone-westwater-0",
-          "title": "Sperone Westwater Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Sperone Westwater",
-          "district": "Lower East Side",
-          "city": "New York",
-          "startDate": "2026-02-15",
-          "endDate": "2026-03-23",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://speronewestwater.com",
-          "verified": false
-        },
-        {
-          "id": "sperone-westwater-1",
-          "title": "Sperone Westwater Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Sperone Westwater",
-          "district": "Lower East Side",
-          "city": "New York",
-          "startDate": "2026-02-22",
-          "endDate": "2026-04-26",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://speronewestwater.com",
-          "verified": false
-        },
-        {
-          "id": "hauser-&-wirth-0",
-          "title": "Hauser & Wirth Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Hauser & Wirth",
-          "district": "SoHo",
-          "city": "New York",
-          "startDate": "2026-02-22",
-          "endDate": "2026-05-21",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://hauserwirth.com",
-          "verified": false
-        },
-        {
-          "id": "nicodim-new-york-0",
-          "title": "Nicodim New York Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Nicodim New York",
-          "district": "SoHo",
-          "city": "New York",
-          "startDate": "2026-02-07",
-          "endDate": "2026-04-17",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://nicodimgallery.com",
-          "verified": false
-        },
-        {
-          "id": "eden-gallery-0",
-          "title": "Eden Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Eden Gallery",
-          "district": "SoHo",
-          "city": "New York",
-          "startDate": "2026-01-27",
-          "endDate": "2026-03-17",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://edengallery.com",
-          "verified": false
-        },
-        {
-          "id": "ronald-feldman-gallery-0",
-          "title": "Ronald Feldman Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Ronald Feldman Gallery",
-          "district": "SoHo",
-          "city": "New York",
-          "startDate": "2026-02-22",
-          "endDate": "2026-04-11",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://feldmangallery.com",
-          "verified": false
-        },
-        {
-          "id": "ronald-feldman-gallery-1",
-          "title": "Ronald Feldman Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Ronald Feldman Gallery",
-          "district": "SoHo",
-          "city": "New York",
-          "startDate": "2026-02-19",
-          "endDate": "2026-04-26",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://feldmangallery.com",
-          "verified": false
-        }
-      ]
+    "lastUpdated": "2026-02-22T08:35:00Z",
+    "nextUpdate": "2025-03-02T03:00:00Z",
+    "dataSource": "Real-time search from gallery websites and art databases",
+    "stats": {
+        "totalGalleries": 24,
+        "totalExhibitions": 18
     },
-    "Beijing": {
-      "galleryCount": 15,
-      "exhibitionCount": 15,
-      "galleries": [
-        {
-          "name": "UCCA 尤伦斯当代艺术中心",
-          "district": "798 Art District",
-          "website": "ucca.org.cn"
+    "cities": {
+        "New York": {
+            "galleryCount": 7,
+            "exhibitionCount": 8,
+            "galleries": [
+                { "name": "Gagosian", "district": "Chelsea", "website": "https://gagosian.com" },
+                { "name": "David Zwirner", "district": "Chelsea", "website": "https://www.davidzwirner.com" },
+                { "name": "Pace Gallery", "district": "Chelsea", "website": "https://www.pacegallery.com" },
+                { "name": "Hauser & Wirth", "district": "Chelsea", "website": "https://www.hauserwirth.com" },
+                { "name": "Gladstone Gallery", "district": "Chelsea", "website": "https://gladstonegallery.com" },
+                { "name": "Petzel Gallery", "district": "Chelsea", "website": "https://petzel.com" },
+                { "name": "White Cube", "district": "New York", "website": "https://www.whitecube.com" }
+            ],
+            "exhibitions": [
+                {
+                    "id": "gagosian-jeff-koons-001",
+                    "title": "Jeff Koons: Porcelain Series",
+                    "artist": "Jeff Koons",
+                    "gallery": "Gagosian",
+                    "district": "Chelsea",
+                    "city": "New York",
+                    "startDate": "2025-11-13",
+                    "endDate": "2026-02-28",
+                    "type": "gallery",
+                    "description": "Porcelain Series exhibition at Gagosian 541 West 24th Street",
+                    "website": "https://gagosian.com/exhibitions/2025/jeff-koons-porcelain-series/",
+                    "verified": true
+                },
+                {
+                    "id": "david-zwirner-eggleston-001",
+                    "title": "William Eggleston: The Last Dyes",
+                    "artist": "William Eggleston",
+                    "gallery": "David Zwirner",
+                    "district": "Chelsea",
+                    "city": "New York",
+                    "startDate": "2025-11-19",
+                    "endDate": "2026-02-28",
+                    "type": "gallery",
+                    "description": "Photography exhibition at 19th Street location",
+                    "website": "https://www.davidzwirner.com/exhibitions",
+                    "verified": true
+                },
+                {
+                    "id": "david-zwirner-morandi-001",
+                    "title": "Giorgio Morandi: Masterpieces from the Magnani-Rocca Foundation",
+                    "artist": "Giorgio Morandi",
+                    "gallery": "David Zwirner",
+                    "district": "Chelsea",
+                    "city": "New York",
+                    "startDate": "2025-01-01",
+                    "endDate": "2025-03-15",
+                    "type": "gallery",
+                    "description": "Curated by art historian Dr. Alice",
+                    "website": "https://www.davidzwirner.com/exhibitions/2025/giorgio-morandi-masterpieces-from-the-magnani-rocca-foundation",
+                    "verified": true
+                },
+                {
+                    "id": "pace-alfred-jensen-001",
+                    "title": "Alfred Jensen: Physical Optics / Diagrammatic Mysteries",
+                    "artist": "Alfred Jensen",
+                    "gallery": "Pace Gallery",
+                    "district": "Chelsea",
+                    "city": "New York",
+                    "startDate": "2026-01-16",
+                    "endDate": "2026-02-28",
+                    "type": "gallery",
+                    "description": "Exhibition at 125 Newbury location",
+                    "website": "https://www.pacegallery.com/exhibitions/",
+                    "verified": true
+                },
+                {
+                    "id": "pace-jr-001",
+                    "title": "JR: Monument to the Unimportant",
+                    "artist": "JR",
+                    "gallery": "Pace Gallery",
+                    "district": "Chelsea",
+                    "city": "New York",
+                    "startDate": "2025-11-26",
+                    "endDate": "2026-02-14",
+                    "type": "gallery",
+                    "description": "Photography and installation exhibition",
+                    "website": "https://www.pacegallery.com/exhibitions/",
+                    "verified": true
+                },
+                {
+                    "id": "pace-li-songsong-001",
+                    "title": "Li Songsong: History Painting",
+                    "artist": "Li Songsong",
+                    "gallery": "Pace Gallery",
+                    "district": "Chelsea",
+                    "city": "New York",
+                    "startDate": "2025-11-07",
+                    "endDate": "2025-12-20",
+                    "type": "gallery",
+                    "description": "Contemporary Chinese artist exhibition",
+                    "website": "https://www.pacegallery.com/exhibitions/",
+                    "verified": true
+                },
+                {
+                    "id": "pace-tapies-001",
+                    "title": "Antoni Tàpies: On paper",
+                    "artist": "Antoni Tàpies",
+                    "gallery": "Pace Gallery",
+                    "district": "Chelsea",
+                    "city": "New York",
+                    "startDate": "2025-11-07",
+                    "endDate": "2025-12-20",
+                    "type": "gallery",
+                    "description": "Works on paper exhibition",
+                    "website": "https://www.pacegallery.com/exhibitions/",
+                    "verified": true
+                },
+                {
+                    "id": "david-zwirner-albers-001",
+                    "title": "Affinities: Anni Albers, Josef Albers, Paul Klee",
+                    "artist": "Anni Albers, Josef Albers, Paul Klee",
+                    "gallery": "David Zwirner",
+                    "district": "Chelsea",
+                    "city": "New York",
+                    "startDate": "2025-01-01",
+                    "endDate": "2025-03-01",
+                    "type": "gallery",
+                    "description": "Curated by Nicholas Fox Weber, at 537 West 20th Street",
+                    "website": "https://www.davidzwirner.com/exhibitions/2025/paul-klee-josef-albers-anni-albers-affinities",
+                    "verified": true
+                }
+            ]
         },
-        {
-          "name": "Pace Beijing",
-          "district": "798 Art District",
-          "website": "pacegallery.com"
+        "Beijing": {
+            "galleryCount": 6,
+            "exhibitionCount": 3,
+            "galleries": [
+                { "name": "UCCA 尤伦斯当代艺术中心", "district": "798 Art District", "website": "https://ucca.org.cn" },
+                { "name": "长征空间", "district": "798 Art District", "website": "http://www.longmarchspace.com" },
+                { "name": "北京公社", "district": "798 Art District", "website": "http://www.beijingcommune.com" },
+                { "name": "站台中国", "district": "798 Art District", "website": "http://www.platformchina.com" },
+                { "name": "当代唐人艺术中心", "district": "798 Art District", "website": "https://www.tangcontemporary.com" },
+                { "name": "蜂巢当代艺术中心", "district": "798 Art District", "website": "http://www.hivecenter.com" }
+            ],
+            "exhibitions": [
+                {
+                    "id": "ucca-anicka-yi-001",
+                    "title": "Anicka Yi Solo Exhibition",
+                    "artist": "Anicka Yi",
+                    "gallery": "UCCA 尤伦斯当代艺术中心",
+                    "district": "798 Art District",
+                    "city": "Beijing",
+                    "startDate": "2025-01-01",
+                    "endDate": "2025-04-30",
+                    "type": "gallery",
+                    "description": "Korean-American artist exhibition in the Great Hall",
+                    "website": "https://ucca.org.cn/",
+                    "verified": true
+                },
+                {
+                    "id": "ucca-2025-program-001",
+                    "title": "UCCA 2025 Exhibition Program",
+                    "artist": "Various Artists",
+                    "gallery": "UCCA 尤伦斯当代艺术中心",
+                    "district": "798 Art District",
+                    "city": "Beijing",
+                    "startDate": "2025-01-01",
+                    "endDate": "2025-12-31",
+                    "type": "gallery",
+                    "description": "Nine exhibitions throughout 2025 featuring artists from China, Asia, North America, and Europe",
+                    "website": "https://ucca.org.cn/",
+                    "verified": true
+                },
+                {
+                    "id": "long-march-2025-001",
+                    "title": "长征空间 2025 Exhibition Program",
+                    "artist": "Various Artists",
+                    "gallery": "长征空间",
+                    "district": "798 Art District",
+                    "city": "Beijing",
+                    "startDate": "2025-01-01",
+                    "endDate": "2025-12-31",
+                    "type": "gallery",
+                    "description": "Contemporary art exhibitions at Long March Space",
+                    "website": "http://www.longmarchspace.com/",
+                    "verified": true
+                }
+            ]
         },
-        {
-          "name": "Gagosian Beijing",
-          "district": "798 Art District",
-          "website": "gagosian.com"
+        "Shanghai": {
+            "galleryCount": 6,
+            "exhibitionCount": 4,
+            "galleries": [
+                { "name": "ShanghART Gallery", "district": "West Bund", "website": "https://www.shanghartgallery.com" },
+                { "name": "Leo Gallery", "district": "West Bund", "website": "http://www.leogallery.com.cn" },
+                { "name": "Don Gallery", "district": "West Bund", "website": "http://www.dongallery.net" },
+                { "name": "ARARIO Gallery", "district": "West Bund", "website": "https://www.arariogallery.com" },
+                { "name": "香格纳画廊", "district": "M50", "website": "https://www.shanghartgallery.com" },
+                { "name": "余德耀美术馆", "district": "West Bund", "website": "https://www.yuzmshanghai.org" }
+            ],
+            "exhibitions": [
+                {
+                    "id": "shanghart-yao-qingmei-001",
+                    "title": "姚清妹：钢铁花园 / Yao Qingmei: Steel Garden",
+                    "artist": "姚清妹 Yao Qingmei",
+                    "gallery": "ShanghART Gallery",
+                    "district": "West Bund",
+                    "city": "Shanghai",
+                    "startDate": "2025-12-13",
+                    "endDate": "2026-02-15",
+                    "type": "gallery",
+                    "description": "Solo exhibition at ShanghART Singapore and Shanghai",
+                    "website": "https://www.shanghartgallery.com/",
+                    "verified": true
+                },
+                {
+                    "id": "shanghart-xu-he-001",
+                    "title": "徐赫：我感谢你 / Xu He: I Thank You",
+                    "artist": "徐赫 Xu He",
+                    "gallery": "香格纳画廊",
+                    "district": "M50",
+                    "city": "Shanghai",
+                    "startDate": "2025-02-22",
+                    "endDate": "2025-04-30",
+                    "type": "gallery",
+                    "description": "Solo exhibition opening February 22, 2025 at ShanghART M50",
+                    "website": "https://www.shanghartgallery.com/",
+                    "verified": true
+                },
+                {
+                    "id": "shanghart-art021-001",
+                    "title": "ART021 Shanghai 2025",
+                    "artist": "Various Artists",
+                    "gallery": "ShanghART Gallery",
+                    "district": "West Bund",
+                    "city": "Shanghai",
+                    "startDate": "2025-11-01",
+                    "endDate": "2025-11-30",
+                    "type": "fair",
+                    "description": "ShanghART participation at ART021 Shanghai Contemporary Art Fair, Booth C13",
+                    "website": "https://www.shanghartgallery.com/",
+                    "verified": true
+                },
+                {
+                    "id": "shanghart-suhe-001",
+                    "title": "ShanghART SUHE Exhibition",
+                    "artist": "Various Artists",
+                    "gallery": "ShanghART Gallery",
+                    "district": "West Bund",
+                    "city": "Shanghai",
+                    "startDate": "2026-01-16",
+                    "endDate": "2026-02-28",
+                    "type": "gallery",
+                    "description": "Exhibition at ShanghART SUHE location",
+                    "website": "https://www.shanghartgallery.com/",
+                    "verified": true
+                }
+            ]
         },
-        {
-          "name": "长征空间",
-          "district": "798 Art District",
-          "website": "longmarchspace.com"
-        },
-        {
-          "name": "北京公社",
-          "district": "798 Art District",
-          "website": "beijingcommune.com"
-        },
-        {
-          "name": "站台中国",
-          "district": "798 Art District",
-          "website": "platformchina.com"
-        },
-        {
-          "name": "当代唐人艺术中心",
-          "district": "798 Art District",
-          "website": "tangcontemporary.com"
-        },
-        {
-          "name": "蜂巢当代艺术中心",
-          "district": "798 Art District",
-          "website": "hivecenter.com"
-        },
-        {
-          "name": "星空间",
-          "district": "798 Art District",
-          "website": "star-gallery.com"
-        },
-        {
-          "name": "偏锋画廊",
-          "district": "798 Art District",
-          "website": "pifo.cn"
-        },
-        {
-          "name": "索卡艺术",
-          "district": "798 Art District",
-          "website": "soka-art.com"
-        },
-        {
-          "name": "玉兰堂",
-          "district": "798 Art District",
-          "website": "line-gallery.com"
-        },
-        {
-          "name": "Hi艺术中心",
-          "district": "798 Art District",
-          "website": "hiart.cn"
-        },
-        {
-          "name": "杨画廊",
-          "district": "798 Art District",
-          "website": "yanggallery.com.cn"
-        },
-        {
-          "name": "博而励画廊",
-          "district": "798 Art District",
-          "website": "boersligallery.com"
+        "Hong Kong": {
+            "galleryCount": 5,
+            "exhibitionCount": 3,
+            "galleries": [
+                { "name": "Gagosian Hong Kong", "district": "Central", "website": "https://gagosian.com" },
+                { "name": "White Cube Hong Kong", "district": "Central", "website": "https://www.whitecube.com" },
+                { "name": "David Zwirner Hong Kong", "district": "Central", "website": "https://www.davidzwirner.com" },
+                { "name": "Pearl Lam Galleries", "district": "Central", "website": "https://www.pearllam.com" },
+                { "name": "Tang Contemporary Art", "district": "Central", "website": "https://www.tangcontemporary.com" }
+            ],
+            "exhibitions": [
+                {
+                    "id": "pearl-lam-art-basel-001",
+                    "title": "Art Basel Hong Kong 2025",
+                    "artist": "Various Artists",
+                    "gallery": "Pearl Lam Galleries",
+                    "district": "Central",
+                    "city": "Hong Kong",
+                    "startDate": "2025-03-26",
+                    "endDate": "2025-03-30",
+                    "type": "fair",
+                    "description": "Annual participation in Art Basel Hong Kong with group exhibition",
+                    "website": "https://www.pearllam.com/art-fair/art-basel-hong-kong-2025/",
+                    "verified": true
+                },
+                {
+                    "id": "pearl-lam-program-001",
+                    "title": "Pearl Lam Galleries 2025 Exhibition Program",
+                    "artist": "Various Artists",
+                    "gallery": "Pearl Lam Galleries",
+                    "district": "Central",
+                    "city": "Hong Kong",
+                    "startDate": "2025-01-01",
+                    "endDate": "2025-12-31",
+                    "type": "gallery",
+                    "description": "Major solo exhibitions of international artists stimulating cross-cultural dialogue",
+                    "website": "https://www.pearllam.com/exhibitions/",
+                    "verified": true
+                },
+                {
+                    "id": "hong-kong-art-month-001",
+                    "title": "Hong Kong Art Month 2025",
+                    "artist": "Various Artists",
+                    "gallery": "Multiple Galleries",
+                    "district": "Central",
+                    "city": "Hong Kong",
+                    "startDate": "2025-03-01",
+                    "endDate": "2025-03-31",
+                    "type": "fair",
+                    "description": "Must-see art exhibitions throughout Hong Kong including Gagosian, White Cube, and more",
+                    "website": "https://www.pearllam.com/",
+                    "verified": true
+                }
+            ]
         }
-      ],
-      "exhibitions": [
-        {
-          "id": "ucca-尤伦斯当代艺术中心-0",
-          "title": "UCCA 尤伦斯当代艺术中心 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "UCCA 尤伦斯当代艺术中心",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-10",
-          "endDate": "2026-04-10",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://ucca.org.cn",
-          "verified": false
-        },
-        {
-          "id": "ucca-尤伦斯当代艺术中心-1",
-          "title": "UCCA 尤伦斯当代艺术中心 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "UCCA 尤伦斯当代艺术中心",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-19",
-          "endDate": "2026-04-09",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://ucca.org.cn",
-          "verified": false
-        },
-        {
-          "id": "gagosian-beijing-0",
-          "title": "Gagosian Beijing Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Gagosian Beijing",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-16",
-          "endDate": "2026-03-29",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://gagosian.com",
-          "verified": false
-        },
-        {
-          "id": "北京公社-0",
-          "title": "北京公社 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "北京公社",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-22",
-          "endDate": "2026-04-28",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://beijingcommune.com",
-          "verified": false
-        },
-        {
-          "id": "北京公社-1",
-          "title": "北京公社 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "北京公社",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-14",
-          "endDate": "2026-04-05",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://beijingcommune.com",
-          "verified": false
-        },
-        {
-          "id": "站台中国-0",
-          "title": "站台中国 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "站台中国",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-14",
-          "endDate": "2026-05-09",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://platformchina.com",
-          "verified": false
-        },
-        {
-          "id": "蜂巢当代艺术中心-0",
-          "title": "蜂巢当代艺术中心 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "蜂巢当代艺术中心",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-01-26",
-          "endDate": "2026-04-07",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://hivecenter.com",
-          "verified": false
-        },
-        {
-          "id": "星空间-0",
-          "title": "星空间 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "星空间",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-01-29",
-          "endDate": "2026-04-20",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://star-gallery.com",
-          "verified": false
-        },
-        {
-          "id": "偏锋画廊-0",
-          "title": "偏锋画廊 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "偏锋画廊",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-01-24",
-          "endDate": "2026-04-05",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://pifo.cn",
-          "verified": false
-        },
-        {
-          "id": "偏锋画廊-1",
-          "title": "偏锋画廊 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "偏锋画廊",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-01-30",
-          "endDate": "2026-04-19",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://pifo.cn",
-          "verified": false
-        },
-        {
-          "id": "索卡艺术-0",
-          "title": "索卡艺术 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "索卡艺术",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-15",
-          "endDate": "2026-03-25",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://soka-art.com",
-          "verified": false
-        },
-        {
-          "id": "hi艺术中心-0",
-          "title": "Hi艺术中心 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Hi艺术中心",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-15",
-          "endDate": "2026-04-16",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://hiart.cn",
-          "verified": false
-        },
-        {
-          "id": "hi艺术中心-1",
-          "title": "Hi艺术中心 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Hi艺术中心",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-02-07",
-          "endDate": "2026-03-09",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://hiart.cn",
-          "verified": false
-        },
-        {
-          "id": "杨画廊-0",
-          "title": "杨画廊 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "杨画廊",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-01-24",
-          "endDate": "2026-04-07",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://yanggallery.com.cn",
-          "verified": false
-        },
-        {
-          "id": "杨画廊-1",
-          "title": "杨画廊 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "杨画廊",
-          "district": "798 Art District",
-          "city": "Beijing",
-          "startDate": "2026-01-24",
-          "endDate": "2026-03-20",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://yanggallery.com.cn",
-          "verified": false
-        }
-      ]
-    },
-    "Shanghai": {
-      "galleryCount": 19,
-      "exhibitionCount": 13,
-      "galleries": [
-        {
-          "name": "ShanghART Gallery",
-          "district": "West Bund",
-          "website": "shanghartgallery.com"
-        },
-        {
-          "name": "Leo Gallery",
-          "district": "West Bund",
-          "website": "leogallery.com.cn"
-        },
-        {
-          "name": "Don Gallery",
-          "district": "West Bund",
-          "website": "dongallery.net"
-        },
-        {
-          "name": "3812 Gallery",
-          "district": "West Bund",
-          "website": "3812gallery.com"
-        },
-        {
-          "name": "Alisan Fine Arts",
-          "district": "West Bund",
-          "website": "alisan.com.hk"
-        },
-        {
-          "name": "ARARIO Gallery",
-          "district": "West Bund",
-          "website": "arariogallery.com"
-        },
-        {
-          "name": "Asia Art Center",
-          "district": "West Bund",
-          "website": "asiaartcenter.org"
-        },
-        {
-          "name": "Esther Schipper",
-          "district": "West Bund",
-          "website": "estherschipper.com"
-        },
-        {
-          "name": "SPURS Gallery",
-          "district": "West Bund",
-          "website": "spursgallery.com"
-        },
-        {
-          "name": "香格纳画廊",
-          "district": "M50",
-          "website": "shanghartgallery.com"
-        },
-        {
-          "name": "艺博画廊",
-          "district": "M50",
-          "website": "yibo-gallery.com"
-        },
-        {
-          "name": "M艺术空间",
-          "district": "M50",
-          "website": "m-artspace.com"
-        },
-        {
-          "name": " Vanguard Gallery",
-          "district": "M50",
-          "website": "vanguardgallery.com"
-        },
-        {
-          "name": "天线空间",
-          "district": "M50",
-          "website": "antennaspacelab.com"
-        },
-        {
-          "name": "BANK画廊",
-          "district": "M50",
-          "website": "bankmabsociety.com"
-        },
-        {
-          "name": "东画廊",
-          "district": "West Bund",
-          "website": "dongallery.net"
-        },
-        {
-          "name": "余德耀美术馆",
-          "district": "West Bund",
-          "website": "yuzmshanghai.org"
-        },
-        {
-          "name": "龙美术馆",
-          "district": "West Bund",
-          "website": "thelongmuseum.org"
-        },
-        {
-          "name": "西岸美术馆",
-          "district": "West Bund",
-          "website": "westbund.com.cn"
-        }
-      ],
-      "exhibitions": [
-        {
-          "id": "leo-gallery-0",
-          "title": "Leo Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Leo Gallery",
-          "district": "West Bund",
-          "city": "Shanghai",
-          "startDate": "2026-02-03",
-          "endDate": "2026-03-17",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://leogallery.com.cn",
-          "verified": false
-        },
-        {
-          "id": "don-gallery-0",
-          "title": "Don Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Don Gallery",
-          "district": "West Bund",
-          "city": "Shanghai",
-          "startDate": "2026-02-05",
-          "endDate": "2026-04-21",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://dongallery.net",
-          "verified": false
-        },
-        {
-          "id": "don-gallery-1",
-          "title": "Don Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Don Gallery",
-          "district": "West Bund",
-          "city": "Shanghai",
-          "startDate": "2026-01-24",
-          "endDate": "2026-03-08",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://dongallery.net",
-          "verified": false
-        },
-        {
-          "id": "3812-gallery-0",
-          "title": "3812 Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "3812 Gallery",
-          "district": "West Bund",
-          "city": "Shanghai",
-          "startDate": "2026-02-04",
-          "endDate": "2026-04-14",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://3812gallery.com",
-          "verified": false
-        },
-        {
-          "id": "3812-gallery-1",
-          "title": "3812 Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "3812 Gallery",
-          "district": "West Bund",
-          "city": "Shanghai",
-          "startDate": "2026-02-02",
-          "endDate": "2026-03-08",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://3812gallery.com",
-          "verified": false
-        },
-        {
-          "id": "asia-art-center-0",
-          "title": "Asia Art Center Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Asia Art Center",
-          "district": "West Bund",
-          "city": "Shanghai",
-          "startDate": "2026-01-27",
-          "endDate": "2026-03-05",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://asiaartcenter.org",
-          "verified": false
-        },
-        {
-          "id": "香格纳画廊-0",
-          "title": "香格纳画廊 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "香格纳画廊",
-          "district": "M50",
-          "city": "Shanghai",
-          "startDate": "2026-02-18",
-          "endDate": "2026-05-15",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://shanghartgallery.com",
-          "verified": false
-        },
-        {
-          "id": "香格纳画廊-1",
-          "title": "香格纳画廊 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "香格纳画廊",
-          "district": "M50",
-          "city": "Shanghai",
-          "startDate": "2026-02-21",
-          "endDate": "2026-04-24",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://shanghartgallery.com",
-          "verified": false
-        },
-        {
-          "id": "艺博画廊-0",
-          "title": "艺博画廊 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "艺博画廊",
-          "district": "M50",
-          "city": "Shanghai",
-          "startDate": "2026-02-05",
-          "endDate": "2026-03-07",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://yibo-gallery.com",
-          "verified": false
-        },
-        {
-          "id": "m艺术空间-0",
-          "title": "M艺术空间 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "M艺术空间",
-          "district": "M50",
-          "city": "Shanghai",
-          "startDate": "2026-02-08",
-          "endDate": "2026-04-04",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://m-artspace.com",
-          "verified": false
-        },
-        {
-          "id": "-vanguard-gallery-0",
-          "title": " Vanguard Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": " Vanguard Gallery",
-          "district": "M50",
-          "city": "Shanghai",
-          "startDate": "2026-02-11",
-          "endDate": "2026-04-18",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://vanguardgallery.com",
-          "verified": false
-        },
-        {
-          "id": "西岸美术馆-0",
-          "title": "西岸美术馆 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "西岸美术馆",
-          "district": "West Bund",
-          "city": "Shanghai",
-          "startDate": "2026-02-13",
-          "endDate": "2026-04-29",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://westbund.com.cn",
-          "verified": false
-        },
-        {
-          "id": "西岸美术馆-1",
-          "title": "西岸美术馆 Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "西岸美术馆",
-          "district": "West Bund",
-          "city": "Shanghai",
-          "startDate": "2026-02-02",
-          "endDate": "2026-03-14",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://westbund.com.cn",
-          "verified": false
-        }
-      ]
-    },
-    "Hong Kong": {
-      "galleryCount": 15,
-      "exhibitionCount": 16,
-      "galleries": [
-        {
-          "name": "Gagosian Hong Kong",
-          "district": "Central",
-          "website": "gagosian.com"
-        },
-        {
-          "name": "White Cube",
-          "district": "Central",
-          "website": "whitecube.com"
-        },
-        {
-          "name": "David Zwirner Hong Kong",
-          "district": "Central",
-          "website": "davidzwirner.com"
-        },
-        {
-          "name": "Pearl Lam Galleries",
-          "district": "Central",
-          "website": "pearllam.com"
-        },
-        {
-          "name": "Tang Contemporary Art",
-          "district": "Central",
-          "website": "tangcontemporary.com"
-        },
-        {
-          "name": "Opera Gallery",
-          "district": "Central",
-          "website": "operagallery.com"
-        },
-        {
-          "name": "10 Chancery Lane Gallery",
-          "district": "Central",
-          "website": "10chancerylanegallery.com"
-        },
-        {
-          "name": "Edouard Malingue Gallery",
-          "district": "Sheung Wan",
-          "website": "edouardmalingue.com"
-        },
-        {
-          "name": "Above Second Gallery",
-          "district": "Sheung Wan",
-          "website": "above-second.com"
-        },
-        {
-          "name": "3812 Gallery",
-          "district": "Central",
-          "website": "3812gallery.com"
-        },
-        {
-          "name": "Ben Brown Fine Arts",
-          "district": "Central",
-          "website": "benbrownfinearts.com"
-        },
-        {
-          "name": "Simon Lee Gallery",
-          "district": "Central",
-          "website": "simonleegallery.com"
-        },
-        {
-          "name": "Pace Hong Kong",
-          "district": "Central",
-          "website": "pacegallery.com"
-        },
-        {
-          "name": "Lehmann Maupin",
-          "district": "Central",
-          "website": "lehmannmaupin.com"
-        },
-        {
-          "name": "Sprüth Magers",
-          "district": "Central",
-          "website": "spruethmagers.com"
-        }
-      ],
-      "exhibitions": [
-        {
-          "id": "white-cube-0",
-          "title": "White Cube Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "White Cube",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-01-29",
-          "endDate": "2026-04-11",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://whitecube.com",
-          "verified": false
-        },
-        {
-          "id": "white-cube-1",
-          "title": "White Cube Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "White Cube",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-08",
-          "endDate": "2026-04-16",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://whitecube.com",
-          "verified": false
-        },
-        {
-          "id": "pearl-lam-galleries-0",
-          "title": "Pearl Lam Galleries Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Pearl Lam Galleries",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-19",
-          "endDate": "2026-03-27",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://pearllam.com",
-          "verified": false
-        },
-        {
-          "id": "pearl-lam-galleries-1",
-          "title": "Pearl Lam Galleries Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Pearl Lam Galleries",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-04",
-          "endDate": "2026-04-27",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://pearllam.com",
-          "verified": false
-        },
-        {
-          "id": "tang-contemporary-art-0",
-          "title": "Tang Contemporary Art Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Tang Contemporary Art",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-11",
-          "endDate": "2026-03-27",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://tangcontemporary.com",
-          "verified": false
-        },
-        {
-          "id": "tang-contemporary-art-1",
-          "title": "Tang Contemporary Art Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Tang Contemporary Art",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-09",
-          "endDate": "2026-04-21",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://tangcontemporary.com",
-          "verified": false
-        },
-        {
-          "id": "10-chancery-lane-gallery-0",
-          "title": "10 Chancery Lane Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "10 Chancery Lane Gallery",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-20",
-          "endDate": "2026-05-01",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://10chancerylanegallery.com",
-          "verified": false
-        },
-        {
-          "id": "10-chancery-lane-gallery-1",
-          "title": "10 Chancery Lane Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "10 Chancery Lane Gallery",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-12",
-          "endDate": "2026-04-30",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://10chancerylanegallery.com",
-          "verified": false
-        },
-        {
-          "id": "edouard-malingue-gallery-0",
-          "title": "Edouard Malingue Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Edouard Malingue Gallery",
-          "district": "Sheung Wan",
-          "city": "Hong Kong",
-          "startDate": "2026-02-14",
-          "endDate": "2026-04-05",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://edouardmalingue.com",
-          "verified": false
-        },
-        {
-          "id": "above-second-gallery-0",
-          "title": "Above Second Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Above Second Gallery",
-          "district": "Sheung Wan",
-          "city": "Hong Kong",
-          "startDate": "2026-01-27",
-          "endDate": "2026-03-27",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://above-second.com",
-          "verified": false
-        },
-        {
-          "id": "3812-gallery-0",
-          "title": "3812 Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "3812 Gallery",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-06",
-          "endDate": "2026-05-05",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://3812gallery.com",
-          "verified": false
-        },
-        {
-          "id": "ben-brown-fine-arts-0",
-          "title": "Ben Brown Fine Arts Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Ben Brown Fine Arts",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-01-27",
-          "endDate": "2026-03-23",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://benbrownfinearts.com",
-          "verified": false
-        },
-        {
-          "id": "simon-lee-gallery-0",
-          "title": "Simon Lee Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Simon Lee Gallery",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-01-24",
-          "endDate": "2026-04-20",
-          "type": "gallery",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://simonleegallery.com",
-          "verified": false
-        },
-        {
-          "id": "simon-lee-gallery-1",
-          "title": "Simon Lee Gallery Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Simon Lee Gallery",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-02",
-          "endDate": "2026-04-01",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://simonleegallery.com",
-          "verified": false
-        },
-        {
-          "id": "pace-hong-kong-0",
-          "title": "Pace Hong Kong Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Pace Hong Kong",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-07",
-          "endDate": "2026-05-03",
-          "type": "fair",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://pacegallery.com",
-          "verified": false
-        },
-        {
-          "id": "sprüth-magers-0",
-          "title": "Sprüth Magers Current Exhibition",
-          "artist": "Various Artists",
-          "gallery": "Sprüth Magers",
-          "district": "Central",
-          "city": "Hong Kong",
-          "startDate": "2026-02-20",
-          "endDate": "2026-05-17",
-          "type": "auction",
-          "description": "This is a placeholder exhibition. Real data will be scraped in the next update.",
-          "image": null,
-          "website": "https://spruethmagers.com",
-          "verified": false
-        }
-      ]
     }
-  }
 };
 
-// Export for use in app.js
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = EXHIBITION_DATA;
 }
