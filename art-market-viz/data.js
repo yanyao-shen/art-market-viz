@@ -1,37 +1,3 @@
-// Art market reference links by venue
-const venueLinks = {
-    "Christie's New York": "https://www.christies.com/en/locations/new-york",
-    "Sotheby's New York": "https://www.sothebys.com/en/departments/new-york",
-    "Phillips New York": "https://www.phillips.com/locations/new-york",
-    "Christie's Hong Kong": "https://www.christies.com/en/locations/hong-kong",
-    "Sotheby's Hong Kong": "https://www.sothebys.com/en/departments/hong-kong",
-    "Bonhams Hong Kong": "https://www.bonhams.com/locations/hong-kong/",
-    "Poly Auction Beijing": "https://www.polyauction.com",
-    "China Guardian Beijing": "https://www.cguardian.com",
-    "Xiling Yinshe Shanghai": "https://www.xlym.cn",
-    "Gagosian Gallery": "https://gagosian.com/locations/new-york/",
-    "David Zwirner": "https://www.davidzwirner.com",
-    "Pace Gallery": "https://www.pacegallery.com",
-    "FQM": "https://fqmnyc.com",
-    "bitforms gallery": "https://bitforms.art",
-    "Fraenkel Gallery": "https://fraenkelgallery.com",
-    "China Institute Gallery": "https://chinainstitute.org/gallery/",
-    "UCCA Center for Contemporary Art": "https://ucca.org.cn",
-    "Power Station of Art": "https://www.powerstationofart.com",
-    "Pace Beijing": "https://www.pacegallery.com/beijing/",
-    "Pearl Lam Galleries": "https://www.pearllam.com",
-    "Long March Space": "http://www.longmarchspace.com",
-    "Javits Center": "https://thearmoryshow.com",
-    "Hong Kong Convention Centre": "https://artbasel.com/hong-kong",
-    "The Shed": "https://frieze.com/fairs/frieze-new-york",
-    "West Bund Art Center": "https://www.westbund.com.cn",
-    "Shanghai Exhibition Center": "https://www.art021.com",
-    "Multiple Venues": "https://asiaweeknewyork.com",
-    "Central Harbourfront": "https://artcentralhongkong.com",
-    "National Agricultural Exhibition Center": "https://www.beijingcontemporary.com",
-    "Park Avenue Armory": "https://www.tefaf.com/fairs/tefaf-new-york-spring"
-};
-
 // Mock data for art market events
 // In production, this would be fetched from APIs or scraped data
 
@@ -542,5 +508,5 @@ function formatDate(dateStr) {
 
 // Export for use in app.js
 if (typeof module !== 'undefined' && module.exports) {
-    module.exports = { artEvents, venueLinks, getEventsByDateRange, getEventsByCity, formatDate };
+    module.exports = { artEvents, getEventsByDateRange, getEventsByCity, formatDate };
 }

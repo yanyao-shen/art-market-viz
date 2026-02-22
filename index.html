@@ -3,461 +3,93 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Art Market Pulse | 艺术市场动态</title>
-    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Noto+Serif+SC:wght@400;600&display=swap" rel="stylesheet">
+    <title>Yanyao's Projects</title>
     <style>
-        :root {
-            --bg-primary: #fafaf9;
-            --bg-secondary: #f5f5f4;
-            --text-primary: #1c1917;
-            --text-secondary: #78716c;
-            --accent: #dc2626;
-            --accent-light: #fee2e2;
-            --border: #e7e5e4;
-            --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.1);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
+        * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background: var(--bg-primary);
-            color: var(--text-primary);
-            line-height: 1.6;
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        .header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            z-index: 1000;
-            background: rgba(250, 250, 249, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 2rem;
-        }
-
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
             display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 1.25rem;
-            font-weight: 600;
-            letter-spacing: -0.02em;
-        }
-
-        .logo span {
-            color: var(--accent);
-        }
-
-        /* Controls Panel */
-        .controls {
-            position: fixed;
-            top: 80px;
-            left: 2rem;
-            z-index: 999;
-            background: white;
-            border-radius: 12px;
-            box-shadow: var(--shadow);
-            padding: 1.5rem;
-            width: 280px;
-            max-height: calc(100vh - 120px);
-            overflow-y: auto;
-        }
-
-        .control-section {
-            margin-bottom: 1.5rem;
-        }
-
-        .control-section:last-child {
-            margin-bottom: 0;
-        }
-
-        .control-label {
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            color: var(--text-secondary);
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        /* Filter Buttons */
-        .filter-group {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .filter-btn {
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--border);
-            background: white;
-            border-radius: 20px;
-            font-size: 0.875rem;
-            cursor: pointer;
-            transition: all 0.2s;
-            font-family: inherit;
-        }
-
-        .filter-btn:hover {
-            border-color: var(--text-secondary);
-        }
-
-        .filter-btn.active {
-            background: var(--text-primary);
-            color: white;
-            border-color: var(--text-primary);
-        }
-
-        .filter-btn.auction.active {
-            background: #dc2626;
-            border-color: #dc2626;
-        }
-
-        .filter-btn.gallery.active {
-            background: #059669;
-            border-color: #059669;
-        }
-
-        .filter-btn.city-btn.active {
-            background: #0ea5e9;
-            border-color: #0ea5e9;
-            color: white;
-        }
-
-        /* Timeline Slider */
-        .timeline-container {
-            margin-top: 0.5rem;
-        }
-
-        .timeline-slider {
-            width: 100%;
-            height: 4px;
-            border-radius: 2px;
-            background: var(--border);
-            outline: none;
-            -webkit-appearance: none;
-        }
-
-        .timeline-slider::-webkit-slider-thumb {
-            -webkit-appearance: none;
-            width: 16px;
-            height: 16px;
-            border-radius: 50%;
-            background: var(--text-primary);
-            cursor: pointer;
-        }
-
-        .timeline-labels {
-            display: flex;
-            justify-content: space-between;
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 0.5rem;
-        }
-
-        .current-date {
-            font-size: 0.875rem;
-            font-weight: 500;
-            color: var(--text-primary);
-            margin-top: 0.5rem;
-            text-align: center;
-        }
-
-        /* Stats */
-        .stats-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0.75rem;
-        }
-
-        .stat-item {
-            background: var(--bg-secondary);
-            padding: 0.75rem;
-            border-radius: 8px;
-            text-align: center;
-        }
-
-        .stat-value {
-            font-size: 1.25rem;
-            font-weight: 600;
-            color: var(--text-primary);
-        }
-
-        .stat-label {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-            margin-top: 0.25rem;
-        }
-
-        /* Map Container */
-        .map-container {
-            position: fixed;
-            top: 70px;
-            left: 320px;
-            right: 0;
-            bottom: 0;
-        }
-
-        #map {
-            width: 100%;
-            height: 100%;
-        }
-
-        /* Custom Popup */
-        .custom-popup .leaflet-popup-content-wrapper {
-            background: white;
-            border-radius: 12px;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.15);
-            padding: 0;
-            overflow: hidden;
-        }
-
-        .custom-popup .leaflet-popup-content {
-            margin: 0;
-            width: 280px !important;
-        }
-
-        .custom-popup .leaflet-popup-tip {
-            background: white;
-        }
-
-        .event-card {
-            padding: 1rem;
-        }
-
-        .event-type {
-            display: inline-block;
-            padding: 0.25rem 0.5rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.02em;
-            margin-bottom: 0.5rem;
-        }
-
-        .event-type.auction {
-            background: #fee2e2;
-            color: #dc2626;
-        }
-
-        .event-type.gallery {
-            background: #d1fae5;
-            color: #059669;
-        }
-
-        .event-type.fair {
-            background: #ede9fe;
-            color: #7c3aed;
-        }
-
-        .event-title {
-            font-family: 'Noto Serif SC', serif;
-            font-size: 1rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-            line-height: 1.4;
-        }
-
-        .event-venue {
-            font-size: 0.875rem;
-            color: var(--text-secondary);
-            margin-bottom: 0.25rem;
-        }
-
-        .event-date {
-            font-size: 0.75rem;
-            color: var(--text-secondary);
-        }
-
-        .event-price {
-            margin-top: 0.75rem;
-            padding-top: 0.75rem;
-            border-top: 1px solid var(--border);
-            font-size: 0.875rem;
-            font-weight: 500;
-        }
-
-        .event-link {
-            display: inline-block;
-            margin-top: 0.75rem;
-            padding: 0.5rem 1rem;
-            background: var(--text-primary);
-            color: white;
-            text-decoration: none;
-            border-radius: 6px;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: background 0.2s;
-        }
-
-        .event-link:hover {
-            background: var(--accent);
-        }
-
-        /* Links Section - Now hidden since links are in popups */
-        .links-section {
-            display: none;
-        }
-
-        /* Custom Markers */
-        .marker-pin {
-            width: 32px;
-            height: 32px;
-            border-radius: 50%;
-            display: flex;
+            flex-direction: column;
             align-items: center;
             justify-content: center;
+            padding: 40px 20px;
+        }
+        .container { max-width: 800px; width: 100%; }
+        h1 {
             color: white;
-            font-weight: 600;
-            font-size: 0.75rem;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.3);
-            border: 2px solid white;
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
         }
-
-        .marker-pin.auction {
-            background: #dc2626;
+        .subtitle {
+            color: rgba(255,255,255,0.8);
+            text-align: center;
+            margin-bottom: 50px;
+            font-size: 1.1rem;
         }
-
-        .marker-pin.gallery {
-            background: #059669;
+        .projects { display: grid; gap: 20px; }
+        .project-card {
+            background: white;
+            border-radius: 16px;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+            display: block;
         }
-
-        .marker-pin.fair {
-            background: #7c3aed;
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 50px rgba(0,0,0,0.3);
         }
-
-        /* Mobile Responsive */
-        @media (max-width: 768px) {
-            .controls {
-                position: fixed;
-                bottom: 0;
-                left: 0;
-                right: 0;
-                top: auto;
-                width: 100%;
-                max-height: 50vh;
-                border-radius: 20px 20px 0 0;
-                z-index: 1001;
-            }
-
-            .map-container {
-                left: 0;
-                top: 70px;
-                bottom: 50vh;
-            }
-
-            .header-content {
-                padding: 0 1rem;
-            }
-        }
-
-        /* Loading */
-        .loading {
-            position: fixed;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            font-family: 'Noto Serif SC', serif;
+        .project-title {
             font-size: 1.5rem;
-            color: var(--text-secondary);
-            z-index: 2000;
+            color: #333;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .project-desc { color: #666; line-height: 1.6; }
+        .project-tag {
+            display: inline-block;
+            background: #667eea;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            margin-top: 15px;
+            margin-right: 8px;
+        }
+        footer {
+            margin-top: 50px;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.9rem;
+            text-align: center;
         }
     </style>
 </head>
 <body>
-    <div class="loading" id="loading">加载中...</div>
-
-    <header class="header">
-        <div class="header-content">
-            <div class="logo">Art Market <span>Pulse</span></div>
-            <div style="font-size: 0.875rem; color: var(--text-secondary);">纽约 · 上海 · 北京 · 香港</div>
-        </div>
-    </header>
-
-    <div class="controls">
-        <div class="control-section">
-            <span class="control-label">选择城市</span>
-            <div class="filter-group">
-                <button class="filter-btn city-btn" data-city="all">全部</button>
-                <button class="filter-btn city-btn active" data-city="New York">纽约</button>
-                <button class="filter-btn city-btn" data-city="Beijing">北京</button>
-                <button class="filter-btn city-btn" data-city="Shanghai">上海</button>
-                <button class="filter-btn city-btn" data-city="Hong Kong">香港</button>
-            </div>
-        </div>
-
-        <div class="control-section">
-            <span class="control-label">事件类型</span>
-            <div class="filter-group">
-                <button class="filter-btn type-btn active" data-type="all">综合</button>
-                <button class="filter-btn type-btn auction" data-type="auction">拍卖</button>
-                <button class="filter-btn type-btn gallery" data-type="gallery">画廊</button>
-                <button class="filter-btn type-btn fair" data-type="fair">博览会</button>
-            </div>
-        </div>
-
-        <div class="control-section">
-            <span class="control-label">时间轴</span>
-            <div class="timeline-container">
-                <input type="range" class="timeline-slider" id="timeline" min="0" max="120" value="30">
-                <div class="timeline-labels">
-                    <span>过去30天</span>
-                    <span>今天</span>
-                    <span>未来90天</span>
+    <div class="container">
+        <h1>🚀 Yanyao's Projects</h1>
+        <p class="subtitle">一些有趣的实验性项目</p>
+        <div class="projects">
+            <a href="./art-market-viz/" class="project-card">
+                <div class="project-title">🎨 Art Market Pulse</div>
+                <div class="project-desc">
+                    艺术市场动态可视化工具 - 纽约/中国双城艺术事件地图。
+                    交互式地图、事件筛选、时间轴浏览、实时统计。
                 </div>
-                <div class="current-date" id="currentDate">2026年2月22日</div>
-            </div>
+                <span class="project-tag">数据可视化</span>
+                <span class="project-tag">地图</span>
+            </a>
         </div>
-
-        <div class="control-section">
-            <span class="control-label">数据统计</span>
-            <div class="stats-grid">
-                <div class="stat-item">
-                    <div class="stat-value" id="statTotal">0</div>
-                    <div class="stat-label">总事件</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="statAuction">0</div>
-                    <div class="stat-label">拍卖</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="statGallery">0</div>
-                    <div class="stat-label">画廊</div>
-                </div>
-                <div class="stat-item">
-                    <div class="stat-value" id="statFair">0</div>
-                    <div class="stat-label">博览会</div>
-                </div>
-            </div>
-        </div>
+        <footer>
+            <p>© 2026 Yanyao Shen</p>
+        </footer>
     </div>
-
-    <div class="map-container">
-        <div id="map"></div>
-    </div>
-
-    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-    <script src="data.js"></script>
-    <script src="app.js"></script>
 </body>
 </html>

@@ -1,21 +1,24 @@
-# Art Market Pulse
+# Yanyao's GitHub Pages
 
+个人项目集合站，基于 GitHub Pages 部署。
+
+## 项目列表
+
+### 🎨 [Art Market Pulse](./art-market-viz/)
 艺术市场动态可视化工具 - 纽约/中国双城艺术事件地图
 
-## 功能
+**访问地址：** https://yanyao-shen.github.io/art-market-viz/art-market-viz/
 
-- 🗺️ **交互式地图**: 基于 Leaflet 的地图可视化
-- 🎨 **事件筛选**: 拍卖 / 画廊展览 / 艺博会 / 综合
-- 📅 **时间轴**: 过去30天 + 未来90天动态浏览
-- 📊 **实时统计**: 事件类型分布
-- 📱 **响应式设计**: 支持移动端
+---
 
-## 技术栈
+## 添加新项目
 
-- HTML5 / CSS3
-- Vanilla JavaScript
-- Leaflet.js (地图)
-- Google Fonts (Inter + Noto Serif SC)
+1. 在仓库根目录创建新文件夹（如 `project-2/`）
+2. 放入项目的 `index.html` 及相关文件
+3. 在根目录 `index.html` 中添加项目卡片
+4. 推送到 GitHub，自动部署
+
+**新项目访问地址：** `https://yanyao-shen.github.io/art-market-viz/[project-folder]/`
 
 ## 本地开发
 
@@ -30,36 +33,16 @@ python3 -m http.server 8000
 open http://localhost:8000
 ```
 
-## 部署到 GitHub Pages
+## 部署
 
-1. 在 GitHub 创建 private repo (如 `art-market-viz`)
-2. 上传这三个文件到 repo
-3. 设置 GitHub Pages:
-   - Settings → Pages → Source: Deploy from branch
-   - Branch: main, Folder: / (root)
-4. 访问: `https://[your-username].github.io/art-market-viz`
+直接推送到 GitHub 仓库即可自动部署：
 
-## 数据说明
-
-当前使用 mock 数据演示功能。后续可接入:
-- Artnet API
-- Artsy API  
-- 拍卖行官方 API
-- 画廊网站爬虫
-
-## 文件结构
-
-```
-art-market-viz/
-├── index.html    # 主页面
-├── app.js        # 应用逻辑
-├── data.js       # 模拟数据
-└── README.md     # 说明文档
+```bash
+git add .
+git commit -m "Restructure: move art-market-viz to subdirectory"
+git push origin main
 ```
 
-## 待办
-
-- [ ] 接入真实数据源
-- [ ] 添加事件详情页
-- [ ] 价格趋势图表
-- [ ] 收藏/提醒功能
+部署后访问：
+- 项目导航页：https://yanyao-shen.github.io/art-market-viz/
+- 艺术市场网站：https://yanyao-shen.github.io/art-market-viz/art-market-viz/
