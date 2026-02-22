@@ -89,6 +89,8 @@ function convertExhibitionsToEvents() {
 function getApproximateLocation(city, district) {
     const baseCoords = {
         'New York': [40.7128, -74.0060],
+        'Los Angeles': [34.0522, -118.2437],
+        'Chicago': [41.8781, -87.6298],
         'Beijing': [39.9042, 116.4074],
         'Shanghai': [31.2304, 121.4737],
         'Hong Kong': [22.3193, 114.1694]
