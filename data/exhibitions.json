@@ -1,36 +1,21 @@
 {
-  "lastUpdated": "2026-02-22T00:32:09.992Z",
-  "nextUpdate": "2025-03-02T03:00:00Z",
-  "dataSource": "Real-time scraped from gallery websites",
-  "stats": {
-    "totalGalleries": 0,
-    "totalExhibitions": 0,
-    "scrapedGalleries": 0
-  },
+  "lastUpdated": "2026-02-28T19:00:05.399Z",
   "cities": {
     "New York": {
       "galleryCount": 0,
-      "exhibitionCount": 0,
-      "galleries": [],
-      "exhibitions": []
+      "galleries": []
     },
     "Beijing": {
       "galleryCount": 0,
-      "exhibitionCount": 0,
-      "galleries": [],
-      "exhibitions": []
+      "galleries": []
     },
     "Shanghai": {
       "galleryCount": 0,
-      "exhibitionCount": 0,
-      "galleries": [],
-      "exhibitions": []
+      "galleries": []
     },
     "Hong Kong": {
       "galleryCount": 0,
-      "exhibitionCount": 0,
-      "galleries": [],
-      "exhibitions": []
+      "galleries": []
     }
   }
 }
